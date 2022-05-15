@@ -25,7 +25,7 @@
     </tbody>
 </table>
 <div>
-    <% if (book.urls['belle-isle']) { %><a href="<%= book.urls['belle-isle'] %>" target="_blank"><img src="/images/belle-isle.png" alt="Belle Isle Books" /></a><% } %> <% if (book.urls.bookshop) { %><a href="<%= book.urls.bookshop %>" target="_blank"><img src="/images/bookshop.png" alt="Bookshop.org" /></a><% } %> <% if (book.urls.amazon) { %><a href="<%= book.urls.amazon %>" target="_blank"><img src="/images/amazon.png" alt="Amazon" /></a><% } %> <% if (book.urls['barnes-and-noble']) { %><a href="<%= book.urls['barnes-and-noble'] %>" target="_blank"><img src="/images/barnes-and-noble.png" alt="Barnes and Noble" /></a><% } %>
+    <% if (book.urls['belle-isle']) { %><a href="<%= book.urls['belle-isle'] %>" rel="noopener noreferrer" target="_blank"><img src="/images/belle-isle.png" alt="Belle Isle Books" /></a><% } %> <% if (book.urls.bookshop) { %><a href="<%= book.urls.bookshop %>" rel="noopener noreferrer" target="_blank"><img src="/images/bookshop.png" alt="Bookshop.org" /></a><% } %> <% if (book.urls.amazon) { %><a href="<%= book.urls.amazon %>" rel="noopener noreferrer" target="_blank"><img src="/images/amazon.png" alt="Amazon" /></a><% } %> <% if (book.urls['barnes-and-noble']) { %><a href="<%= book.urls['barnes-and-noble'] %>" rel="noopener noreferrer" target="_blank"><img src="/images/barnes-and-noble.png" alt="Barnes and Noble" /></a><% } %>
 </div>
 
 <% } %>
