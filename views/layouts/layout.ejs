@@ -1,34 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8" />
+        <!-- Common Tags -->
+        <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="description" content="Welcome to Helen Williamson's enchanting tales for children of all ages. If you love dinosaurs who wear polka dot slippers, if you have pineapple dreams, higgledy-piggledy thoughts or like to escape into fairy tales, you'll love Helen's whimsical world. There's no other world quite like it!" />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://helenwilliamsonbooks.com" />
-        <meta property="og:site_name" content="Helen Williamson Books" />
-        <meta property="og:title" content="<% if (title) { %><%= title %><% } else { %>Helen Williamson Books<% } %>" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta name="robots" content="index, follow" />
         <title><% if (title) { %><%= title %> | <% } %>Helen Williamson Books</title>
-        <meta property="og:description" content="Welcome to Helen Williamson's enchanting tales for children of all ages. If you love dinosaurs who wear polka dot slippers, if you have pineapple dreams, higgledy-piggledy thoughts or like to escape into fairy tales, you'll love Helen's whimsical world. There's no other world quite like it!" />
+        <!-- Search Engine -->
+        <meta name="description" content="Welcome to Helen Williamson's enchanting tales for children of all ages. If you love dinosaurs who wear polka dot slippers, if you have pineapple dreams, higgledy-piggledy thoughts or like to escape into fairy tales, you'll love Helen's whimsical world. There's no other world quite like it!" />
         <meta name="keywords" content="" />
-        <meta property="og:image" content="https://helenwilliamsonbooks.com/images/helen.jpeg" />
-        <meta property="og:image:alt" content="Helen L. Williamson" />
+        <meta property="image" content="https://helenwilliamsonbooks.com/images/helen.jpeg" />
+        <!-- Schema.org for Google -->
+        <meta itemprop="name" content="<% if (title) { %><%= title %><% } else { %>Helen Williamson Books<% } %>">
+        <meta itemprop="description" content="Welcome to Helen Williamson's enchanting tales for children of all ages. If you love dinosaurs who wear polka dot slippers, if you have pineapple dreams, higgledy-piggledy thoughts or like to escape into fairy tales, you'll love Helen's whimsical world. There's no other world quite like it!">
+        <meta itemprop="image" content="https://helenwilliamsonbooks.com/images/helen.jpeg">
+        <!-- Twitter -->
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="<% if (title) { %><%= title %> | <% } %>Helen Williamson Books" />
         <meta name="twitter:description" content="Welcome to Helen Williamson's enchanting tales for children of all ages. If you love dinosaurs who wear polka dot slippers, if you have pineapple dreams, higgledy-piggledy thoughts or like to escape into fairy tales, you'll love Helen's whimsical world. There's no other world quite like it!" />
         <meta name="twitter:url" content="https://helenwilliamsonbooks.com" />
         <meta name="twitter:image" content="https://helenwilliamsonbooks.com/images/helen.jpeg" />
         <meta name="twitter:image:alt" content="Helen Williamson Books" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png" />
-        <link rel="manifest" href="/favicons/site.webmanifest" />
-        <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#00aba9" />
-        <meta name="msapplication-TileColor" content="#00aba9" />
-        <meta name="theme-color" content="#ffffff" />
+        <!-- Open Graph general (Facebook, Pinterest & Google+) -->
+        <meta name="og:title" content="<% if (title) { %><%= title %><% } else { %>Helen Williamson Books<% } %>" />
+        <meta name="og:description" content="Welcome to Helen Williamson's enchanting tales for children of all ages. If you love dinosaurs who wear polka dot slippers, if you have pineapple dreams, higgledy-piggledy thoughts or like to escape into fairy tales, you'll love Helen's whimsical world. There's no other world quite like it!" />
+        <meta name="og:image" content="https://helenwilliamsonbooks.com/images/helen.jpeg" />
+        <meta name="og:image:alt" content="Helen L. Williamson" />
+        <meta name="og:url" content="https://helenwilliamsonbooks.com" />
+        <meta name="og:site_name" content="Helen Williamson Books" />
+        <meta name="og:locale" content="en_US">
+        <meta name="og:type" content="website" />
+        <!-- Favicons -->
+        <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+        <link rel="manifest" href="/favicons/site.webmanifest">
+        <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#00aba9">
+        <link rel="shortcut icon" href="/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="Helen Williamson Books">
+        <meta name="application-name" content="Helen Williamson Books">
+        <meta name="msapplication-TileColor" content="#00aba9">
+        <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
 
+        <!-- Styles -->
         <link rel="stylesheet" href="/styles/styles.css" />
 
+        <!-- Scripts -->
         <script src="/scripts/image-popup.js" type="module"></script>
         <% if (script) { %>
         <script src="/scripts/<%= script %>.js" type="module"></script>
