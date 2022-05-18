@@ -109,6 +109,35 @@ hr {
     }
 }
 
+#form-container {
+    height: auto;
+    position: relative;
+    width: 500px;
+}
+
+#overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    display: block;
+    height: 100%;
+    padding-bottom: 20px;
+    position: absolute;
+    transform: translate(-10px, -10px);
+    width: 100%;
+    z-index: 9999;
+}
+
+#overlay .noscript-message {
+    color: #ff5555;
+    font-size: 30px;
+    font-weight: bold;
+    left: 50%;
+    line-height: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
 .book-cover {
     float: right;
     max-width: 100%;
@@ -222,27 +251,27 @@ nav ul li > a:hover {
 }
 
 .book-table div.paragraph {
-    text-align: left;
     color: #2a2a2a;
     font-size: 18px;
+    text-align: left;
 }
 
 .book-table div.paragraph strong a {
+    display: block;
     font-size: 22px;
     padding-bottom: 20px;
-    display: block;
 }
 
 .book-table strong:first-of-type ~ div {
-    padding-top: 20px;
     display: block;
+    padding-top: 20px;
 }
 
 .book-table + div {
-    padding: 20px 0px;
     display: block;
-    width: 100%;
+    padding: 20px 0px;
     text-align: right;
+    width: 100%;
 }
 
 @media only screen and (max-width: 700px) {
