@@ -21,6 +21,9 @@ sendButton.addEventListener('click', submitForm);
 
 let nameComplete, emailComplete, messageComplete, validEmail, captchaState;
 
+/**
+ * Updates the output error message
+ */
 function updateErrorMsg() {
     if (nameComplete === false || emailComplete === false || messageComplete === false) errorMessage.innerHTML = 'Please fill out the missing field(s)!<br>';
     else if (validEmail === false) errorMessage.innerHTML = 'Invalid email address!<br>';
@@ -29,6 +32,9 @@ function updateErrorMsg() {
     else errorMessage.innerHTML = '';
 }
 
+/**
+ * Checks the name input field
+ */
 function checkNameField() {
     if (nameInput.value.length === 0) {
         setRedBorder(nameInput);
@@ -41,6 +47,9 @@ function checkNameField() {
     }
 }
 
+/**
+ * Checks the email input field
+ */
 function checkEmailField() {
     if (emailInput.value.length === 0) {
         setRedBorder(emailInput);
@@ -60,6 +69,9 @@ function checkEmailField() {
     }
 }
 
+/**
+ * Checks the message input field
+ */
 function checkMessageField() {
     if (messageInput.value.length === 0) {
         setRedBorder(messageInput);
@@ -72,6 +84,9 @@ function checkMessageField() {
     }
 }
 
+/**
+ * If all options completed, submits the form, or else updates the error message
+ */
 function submitForm() {
     checkNameField();
     checkEmailField();
