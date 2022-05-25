@@ -6,7 +6,7 @@
     "main": "app.js",
     "scripts": {
         "start": "node app.js",
-        "devStart": "DEBUG=helenwilliamsonbooks:* nodemon app.js"
+        "dev": "nodemon app.js"
     },
     "dependencies": {
         "@fastify/static": "^5.0.2",

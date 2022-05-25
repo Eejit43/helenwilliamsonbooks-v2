@@ -18,15 +18,15 @@ const __dirname = path.dirname(new URL(import.meta.url).pathname);
 fastify.register(fastifyStatic, { root: path.join(__dirname, 'public') });
 
 // Register pages
-fastify.get('/', (req, reply) => {
+fastify.get('/', (request, reply) => {
     reply.view('/index.ejs', { title: 'Home', script: '', additionalScripts: [] });
 });
 
-fastify.get('/books', (req, reply) => {
+fastify.get('/books', (request, reply) => {
     reply.view('/pages/books.ejs', { title: 'Books', script: '', additionalScripts: [], books });
 });
 
-fastify.get('/contact', (req, reply) => {
+fastify.get('/contact', (request, reply) => {
     reply.view('/pages/contact.ejs', { title: 'Info & Contact', script: 'contact-form', additionalScripts: [{ src: 'https://www.google.com/recaptcha/api.js', properties: 'async defer' }] });
 });
 
@@ -41,9 +41,9 @@ fastify.setNotFoundHandler((request, reply) => {
 });
 
 // Start server
-fastify.listen({ port: 3000 }, (err) => {
-    if (err) {
-        fastify.log.error(err);
+fastify.listen({ port: process.env.PORT || 3000 }, (error) => {
+    if (error) {
+        fastify.log.error(error);
         process.exit(1);
     }
     console.log('Server is now listening on http://localhost:3000');
