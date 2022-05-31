@@ -10,15 +10,15 @@
         "sourceType": "module"
     },
     "rules": {
+        "eqeqeq": ["error", "always"],
         "indent": ["error", 4, { "SwitchCase": 1 }],
         "linebreak-style": ["error", "unix"],
+        "no-console": ["error"],
+        "no-var": ["error"],
+        "prefer-const": ["error"],
+        "prefer-destructuring": ["error", { "array": false, "object": true }, { "enforceForRenamedProperties": false }],
         "quotes": ["error", "single", { "avoidEscape": true }],
         "semi": ["error", "always"],
-        "eqeqeq": ["error", "always"],
-        "prefer-const": ["error"],
-        "no-var": ["error"],
-        "no-console": ["error"],
-        "prefer-destructuring": ["error", { "array": false, "object": true }, { "enforceForRenamedProperties": false }],
         "jsdoc/newline-after-description": ["error", "never"],
         "jsdoc/no-undefined-types": ["error"]
     }
