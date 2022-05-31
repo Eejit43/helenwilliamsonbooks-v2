@@ -1,4 +1,5 @@
 /* eslint-env node */
+/* eslint-disable no-console */
 
 import fastifyStatic from '@fastify/static';
 import 'dotenv/config';

@@ -16,6 +16,8 @@
         "semi": ["error", "always"],
         "eqeqeq": ["error", "always"],
         "prefer-const": ["error"],
+        "no-var": ["error"],
+        "no-console": ["error"],
         "prefer-destructuring": ["error", { "array": false, "object": true }, { "enforceForRenamedProperties": false }],
         "jsdoc/newline-after-description": ["error", "never"],
         "jsdoc/no-undefined-types": ["error"]
