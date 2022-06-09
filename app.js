@@ -34,11 +34,11 @@ fastify.get('/contact', (request, reply) => {
 // Setup error handlers
 fastify.setErrorHandler((error, request, reply) => {
     console.log(error);
-    reply.status(error.statusCode || 500).view('/error.ejs', { title: error.message.length > 50 ? 'Internal Server Error' : error.message, message: error.message, error, script: '', additionalScripts: [] });
+    reply.status(error.statusCode || 500).view('/error.ejs', { title: 'Internal Server Error', script: '', additionalScripts: [] });
 });
 
 fastify.setNotFoundHandler((request, reply) => {
-    reply.status(404).view('/error.ejs', { title: 'Not Found', message: 'Not Found', error: '', script: '', additionalScripts: [] });
+    reply.status(404).view('/error.ejs', { title: 'Not Found', script: '', additionalScripts: [] });
 });
 
 // Start server
