@@ -19,7 +19,6 @@
     },
     "devDependencies": {
         "eslint": "^8.16.0",
-        "eslint-plugin-jsdoc": "^39.3.0",
-        "nodemon": "^2.0.16"
+        "eslint-plugin-jsdoc": "^39.3.0"
     }
 }
