@@ -9,7 +9,7 @@
         <title><% if (title) { %><%= title %> | <% } %>Helen Williamson Books</title>
         <!-- Search Engine -->
         <meta name="description" content="Welcome to Helen Williamson's enchanting tales for children of all ages. If you love dinosaurs who wear polka dot slippers, if you have pineapple dreams, higgledy-piggledy thoughts or like to escape into fairy tales, you'll love Helen's whimsical world. There's no other world quite like it!" />
-        <meta name="keywords" content="" />
+        <meta name="keywords" content="helenwilliamsonbooks,helen williamson,helen l williamson,helen l williamson books" />
         <meta property="image" content="https://helenwilliamsonbooks.com/images/helen.jpeg" />
         <!-- Schema.org for Google -->
         <meta itemprop="name" content="<% if (title) { %><%= title %><% } else { %>Helen Williamson Books<% } %>">
@@ -50,8 +50,8 @@
         <script src="/scripts/image-popup.js" type="module"></script>
         <% if (script) { %>
         <script src="/scripts/<%= script %>.js" type="module"></script>
-        <% } %> <% for (let i = 0; i < additionalScripts.length; i++) { %>
-        <script src="<%= additionalScripts[i].src %>" <%= additionalScripts[i].properties %>></script>
+        <% } %> <% for (const script of additionalScripts) { %>
+        <script src="<%= script.src %>" <%= script.properties %>></script>
         <% } %>
     </head>
     <body>
