@@ -1,15 +1,30 @@
-<% for (let book in books) { %> <% book = books[book] %> <% let type, price; if (book.paperback && book.hardcover) { type = 'Paperback / Hardcover'; price = `$${book.paperbackPrice} / $${book.hardcoverPrice}`; } if (book.paperback && !book.hardcover) { type = 'Paperback'; price = `$${book.paperbackPrice}`; } if (!book.paperback && book.hardcover) { type = 'Hardcover'; price = `$${book.hardcoverPrice}`; } %>
+<% for (const id of Object.keys(books)) {
 
-<span id="<%= book.id %>"></span>
+const book = books[id];
+
+let type, price;
+if (book.prices.paperback && book.prices.hardcover) {
+    type = 'Paperback / Hardcover';
+    price = `$${book.prices.paperback} / $${book.prices.hardcover}`;
+} else if (book.prices.paperback) {
+    type = 'Paperback';
+    price = `$${book.prices.paperback}`;
+} else {
+    type = 'Hardcover';
+    price = `$${book.prices.hardcover}`;
+}
+%>
+
+<span id="<%= id %>"></span>
 <table class="book-table">
     <tbody>
         <tr>
             <td>
-                <img class="book-cover popup-image" src="/images/books/<%= book.image %>" alt="<%= book.name %> Cover" />
+                <img class="book-cover popup-image" src="/images/books/<%= id %>.png" alt="<%= book.title %> Cover" />
             </td>
             <td>
                 <div class="paragraph">
-                    <strong><a href="#<%= book.id %>" class="no-link-style"><%= book.name %></a></strong>
+                    <strong><a href="#<%= id %>" class="no-link-style"><%= book.title %></a></strong>
                     <%- book.description %>
                     <div>
                         <strong>Type:</strong> <%= type %><br />
