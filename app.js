@@ -61,6 +61,15 @@ const transport = nodemailer.createTransport({
     },
 });
 
+/**
+ * Escapes HTML syntax in a string
+ * @param {string} input String to be modified
+ * @returns {string} Formatted string
+ */
+export function escapeHTML(input) {
+    return input.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#039;');
+}
+
 fastify.post('/contact/submit', (request, reply) => {
     const { name, email, message } = request.body;
 
@@ -70,10 +79,10 @@ fastify.post('/contact/submit', (request, reply) => {
         '<div style="font-family: \'Verdana\', sans-serif; color: #20242c">',
         '<h1>New <a href="https://www.helenwilliamsonbooks.com/contact" target="_blank">Contact Form</a> Submission:</h1>',
         '<div style="background-color: #3f92ff; padding: 10px; max-width: 80%; border-radius: 10px">',
-        `<p><strong>Name:</strong> <span style="background-color: #7588b5; border-radius: 5px; padding: 5px; display: inline-block; min-width: 20px;">${name}</span></p>`, //
-        `<p><strong>Email:</strong> <span style="background-color: #7588b5; border-radius: 5px; padding: 5px; display: inline-block; min-width: 20px;">${email}</span></p>`,
+        `<p><strong>Name:</strong> <span style="background-color: #7588b5; border-radius: 5px; padding: 5px; display: inline-block; min-width: 20px;">${escapeHTML(name)}</span></p>`, //
+        `<p><strong>Email:</strong> <span style="background-color: #7588b5; border-radius: 5px; padding: 5px; display: inline-block; min-width: 20px;">${escapeHTML(email)}</span></p>`,
         '<p><strong>Message:</strong></p>',
-        `<div style="background-color: #7588b5; border-radius: 5px; padding: 5px">${message}</div>`,
+        `<div style="background-color: #7588b5; border-radius: 5px; padding: 5px">${escapeHTML(message)}</div>`,
         '<br />',
         `<p><strong>Sent At:</strong> ${new Date().toLocaleTimeString()}, ${new Date().toLocaleDateString()}</p>`,
         '</div>',
