@@ -23,6 +23,11 @@ if (result === 'success') showAlert('Message sent successfully!', 'success');
 else if (result === 'captcha-failure') showAlert('Captcha verification failed!', 'error');
 else if (result === 'error') showAlert('An error occurred while processing your request!', 'error');
 
+if (result && history.pushState) {
+    const newUrl = window.location.protocol + '//' + window.location.host + window.location.pathname;
+    window.history.pushState({ path: newUrl }, '', newUrl);
+}
+
 /**
  * Updates the output error message
  */
