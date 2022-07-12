@@ -17,15 +17,16 @@ sendButton.addEventListener('click', submitForm);
 
 let nameComplete, emailComplete, messageComplete, validEmail;
 
-const result = window.location.search.match(/[?&]result=([^&]+)/)?.[1];
+const result = new URL(window.location.href).searchParams.get('result');
 
 if (result === 'success') showAlert('Message sent successfully!', 'success');
 else if (result === 'captcha-failure') showAlert('Captcha verification failed!', 'error');
 else if (result === 'error') showAlert('An error occurred while processing your request!', 'error');
 
-if (result && history.pushState) {
-    const newUrl = window.location.protocol + '//' + window.location.host + window.location.pathname;
-    window.history.pushState({ path: newUrl }, '', newUrl);
+if (result && history.replaceState) {
+    const url = new URL(window.location.href);
+    url.searchParams.delete('result');
+    history.replaceState(null, null, url.href);
 }
 
 /**
