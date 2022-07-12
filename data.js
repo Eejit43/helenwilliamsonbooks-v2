@@ -1,7 +1,7 @@
 export const books = {
     'tales-from-balladhoon-2': {
         title: 'Tales from Balladhoon',
-        description: 'The <a href="#tales-from-balladhoon" class="link"><em>original Tales from Balladhoon</em></a>, reimagined, with more original stories!<hr />Join Johnny McGlory and his friends on a delightful journey through the Irish countryside, where fairies and leprechauns are as real as the donkey that walks under the sea and the magician who summons butterflies.<br /><br />These original Irish tales by Irish native Helen L. Williamson, are a delightful glimpse into the world of imagination and an introduction to the time honored craft of Irish storytelling. These books are sure to capture the hearts of both young and old.',
+        description: 'The <a href="#tales-from-balladhoon" class="link"><em>original Tales from Balladhoon</em></a>, reimagined with new illustrations, and two more original stories!<hr />Join Johnny McGlory and his friends on a delightful journey through the Irish countryside, where fairies and leprechauns are as real as the donkey that walks under the sea and the magician who summons butterflies.<br /><br />These original Irish tales by Irish native Helen L. Williamson, are a delightful glimpse into the world of imagination and an introduction to the time honored craft of Irish storytelling. These books are sure to capture the hearts of both young and old.',
         prices: {
             paperback: 14.99,
             hardcover: 23.99,
