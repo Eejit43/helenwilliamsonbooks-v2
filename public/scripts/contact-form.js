@@ -1,3 +1,5 @@
+import { showAlert } from '/scripts/functions.js';
+
 const nameInput = document.getElementById('name');
 const emailInput = document.getElementById('email');
 const messageInput = document.getElementById('message');
@@ -8,29 +10,29 @@ const contactForm = document.getElementById('contact-form');
 const errorMessage = document.getElementById('error-message');
 
 /* Add event listeners */
-['input', 'blur'].forEach((type) => {
-    nameInput.addEventListener(type, checkNameField);
-});
-['input', 'blur'].forEach((type) => {
-    emailInput.addEventListener(type, checkEmailField);
-});
-['input', 'blur'].forEach((type) => {
-    messageInput.addEventListener(type, checkMessageField);
-});
+['input', 'blur'].forEach((type) => nameInput.addEventListener(type, checkNameField));
+['input', 'blur'].forEach((type) => emailInput.addEventListener(type, checkEmailField));
+['input', 'blur'].forEach((type) => messageInput.addEventListener(type, checkMessageField));
 sendButton.addEventListener('click', submitForm);
 
-let nameComplete, emailComplete, messageComplete, validEmail, captchaState;
+let nameComplete, emailComplete, messageComplete, validEmail;
+
+const result = window.location.search.match(/[?&]result=([^&]+)/)?.[1];
+
+if (result === 'success') showAlert('Message sent successfully!', 'success');
+else if (result === 'captcha-failure') showAlert('Captcha verification failed!', 'error');
+else if (result === 'error') showAlert('An error occurred while processing your request!', 'error');
 
 /**
  * Updates the output error message
  */
-function updateErrorMsg() {
+window.updateErrorMsg = () => {
     if (nameComplete === false || emailComplete === false || messageComplete === false) errorMessage.innerHTML = 'Please fill out the missing field(s)!<br>';
     else if (validEmail === false) errorMessage.innerHTML = 'Invalid email address!<br>';
-    else if (captchaState === 'incomplete') errorMessage.innerHTML = 'Please complete the captcha!<br>';
-    else if (captchaState === 'error') errorMessage.innerHTML = 'An error occurred or the captcha expired, please (re)complete!<br>';
+    else if (window.captchaState === 'incomplete') errorMessage.innerHTML = 'Please complete the captcha!<br>';
+    else if (window.captchaState === 'error') errorMessage.innerHTML = 'An error occurred or the captcha expired, please (re)complete!<br>';
     else errorMessage.innerHTML = '';
-}
+};
 
 /**
  * Checks the name input field
@@ -39,11 +41,11 @@ function checkNameField() {
     if (nameInput.value.length === 0) {
         setRedBorder(nameInput);
         nameComplete = false;
-        updateErrorMsg();
+        window.updateErrorMsg();
     } else {
         resetBorder(nameInput);
         nameComplete = true;
-        updateErrorMsg();
+        window.updateErrorMsg();
     }
 }
 
@@ -54,13 +56,13 @@ function checkEmailField() {
     if (emailInput.value.length === 0) {
         setRedBorder(emailInput);
         emailComplete = false;
-        updateErrorMsg();
+        window.updateErrorMsg();
     } else {
         validEmail = /^[a-z0-9._%+!$&*=^|~#%'`?{}/-]+@([a-z0-9-]+\.){1,}([a-z]{2,16})$/.test(emailInput.value);
 
         resetBorder(emailInput);
         emailComplete = true;
-        updateErrorMsg();
+        window.updateErrorMsg();
 
         if (!validEmail) {
             setRedBorder(emailInput);
@@ -76,11 +78,11 @@ function checkMessageField() {
     if (messageInput.value.length === 0) {
         setRedBorder(messageInput);
         messageComplete = false;
-        updateErrorMsg();
+        window.updateErrorMsg();
     } else {
         resetBorder(messageInput);
         messageComplete = true;
-        updateErrorMsg();
+        window.updateErrorMsg();
     }
 }
 
@@ -92,8 +94,8 @@ function submitForm() {
     checkEmailField();
     checkMessageField();
 
-    if (nameComplete && emailComplete && messageComplete && validEmail && captchaState === 'complete') contactForm.submit();
-    else updateErrorMsg();
+    if (nameComplete && emailComplete && messageComplete && validEmail && window.captchaState === 'complete') contactForm.submit();
+    else window.updateErrorMsg();
 }
 
 /**

@@ -1,18 +1,26 @@
 /* eslint-env node */
 /* eslint-disable no-console */
 
+import formBodyPlugin from '@fastify/formbody';
 import fastifyStatic from '@fastify/static';
+import pointOfView from '@fastify/view';
 import 'dotenv/config';
 import ejs from 'ejs';
 import Fastify from 'fastify';
+import { google } from 'googleapis';
+import fetch from 'node-fetch';
+import nodemailer from 'nodemailer';
 import path from 'path';
-import pointOfView from 'point-of-view';
 import { books } from './data.js';
+
+const { OAuth2 } = google.auth;
 
 // Load layouts and static assets
 const fastify = Fastify();
 
 fastify.register(pointOfView, { engine: { ejs }, root: 'views', layout: '/layouts/layout.ejs' });
+
+fastify.register(formBodyPlugin);
 
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
 
@@ -29,6 +37,77 @@ fastify.get('/books', (request, reply) => {
 
 fastify.get('/contact', (request, reply) => {
     reply.view('/pages/contact.ejs', { title: 'Info & Contact', script: 'contact-form', additionalScripts: [{ src: 'https://www.google.com/recaptcha/api.js', properties: 'async defer' }] });
+});
+
+const recaptchaKey = process.env.RECAPTCHA_SECRET_KEY;
+
+const oauth2Client = new OAuth2(process.env.CLIENT_ID, process.env.CLIENT_SECRET);
+
+oauth2Client.setCredentials({
+    refresh_token: process.env.REFRESH_TOKEN, // eslint-disable-line camelcase
+});
+
+const accessToken = oauth2Client.getAccessToken();
+
+const transport = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        type: 'OAuth2',
+        user: process.env.EMAIL_USER,
+        clientId: process.env.CLIENT_ID,
+        clientSecret: process.env.CLIENT_SECRET,
+        refreshToken: process.env.REFRESH_TOKEN,
+        accessToken,
+    },
+});
+
+fastify.post('/contact/submit', (request, reply) => {
+    const { name, email, message } = request.body;
+
+    const responseKey = request.body['g-recaptcha-response'];
+
+    const html = [
+        '<div style="font-family: \'Verdana\', sans-serif; color: #20242c">',
+        '<h1>New <a href="https://www.helenwilliamsonbooks.com/contact" target="_blank">Contact Form</a> Submission:</h1>',
+        '<div style="background-color: #3f92ff; padding: 10px; max-width: 80%; border-radius: 10px">',
+        `<p><strong>Name:</strong> <span style="background-color: #7588b5; border-radius: 5px; padding: 5px; display: inline-block; min-width: 20px;">${name}</span></p>`, //
+        `<p><strong>Email:</strong> <span style="background-color: #7588b5; border-radius: 5px; padding: 5px; display: inline-block; min-width: 20px;">${email}</span></p>`,
+        '<p><strong>Message:</strong></p>',
+        `<div style="background-color: #7588b5; border-radius: 5px; padding: 5px">${message}</div>`,
+        '<br />',
+        `<p><strong>Sent At:</strong> ${new Date().toLocaleTimeString()}, ${new Date().toLocaleDateString()}</p>`,
+        '</div>',
+        '</div>',
+    ].join('');
+
+    const mailOptions = {
+        from: `"Helen Williamson Books" <${process.env.EMAIL_USER}>`,
+        to: process.env.DESTINATION_EMAIL,
+        subject: 'Contact form submission - Helen Williamson Books',
+        text: 'test',
+        html,
+    };
+
+    fetch(`https://www.google.com/recaptcha/api/siteverify?secret=${recaptchaKey}&response=${responseKey}`, { method: 'post' })
+        .then((response) => response.json())
+        .then((googleResponse) => {
+            if (googleResponse.success) {
+                transport.sendMail(mailOptions, (error) => {
+                    if (error) {
+                        console.log(error);
+                        return reply.redirect('/contact?result=error');
+                    } else {
+                        return reply.redirect('/contact?result=success');
+                    }
+                });
+            } else {
+                return reply.redirect('/contact?result=captcha-failure');
+            }
+        })
+        .catch((error) => {
+            console.log(error);
+            return reply.redirect('/contact?result=error');
+        });
 });
 
 // Setup error handlers

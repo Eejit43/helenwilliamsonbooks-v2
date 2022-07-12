@@ -11,11 +11,15 @@
         "logs": "gcloud app logs tail --project=helenwilliamsonbooks"
     },
     "dependencies": {
-        "@fastify/static": "^5.0.2",
+        "@fastify/formbody": "^7.0.1",
+        "@fastify/static": "^6.4.0",
+        "@fastify/view": "^7.0.0",
         "dotenv": "^16.0.0",
         "ejs": "^3.1.8",
-        "fastify": "^3.29.0",
-        "point-of-view": "^5.3.0"
+        "fastify": "^4.2.0",
+        "googleapis": "^105.0.0",
+        "node-fetch": "^3.2.7",
+        "nodemailer": "^6.7.7"
     },
     "devDependencies": {
         "eslint": "^8.16.0",

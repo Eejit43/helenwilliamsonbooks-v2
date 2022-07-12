@@ -1,3 +1,20 @@
+<script>
+    /**
+     * Function used by Google's recaptcha on completion
+     */
+    function recaptchaCompleted() {
+        window.captchaState = 'complete';
+        window.updateErrorMsg();
+    }
+
+    /**
+     * Function used by Google's recaptcha on error
+     */
+    function recaptchaError() {
+        window.captchaState = 'error';
+        window.updateErrorMsg();
+    }
+</script>
 <h2 style="text-align: left; padding-bottom: 10px">About Us</h2>
 <table>
     <tbody>
@@ -33,13 +50,13 @@
             <span class="noscript-message">This form requires JavaScript to function properly! Please enable it and reload!</span>
         </div>
     </noscript>
-    <form method="post" action="https://forms.un-static.com/forms/b012a84f3349b9cdb54a615960961d255106a2de" id="contact-form">
+    <form method="post" action="/contact/submit" id="contact-form">
         <label for="name">Name:</label><br />
-        <input id="name" name="Name" type="text" />
+        <input id="name" name="name" type="text" />
         <br /><br /><label for="name">Email:</label><br />
-        <input type="email" id="email" name="Email" type="text" />
+        <input type="email" id="email" name="email" type="text" />
         <br /><br /><label for="message">Message:</label><br />
-        <textarea id="message" name="Message"></textarea>
+        <textarea id="message" name="message"></textarea>
         <br />
         <div class="g-recaptcha" data-callback="recaptchaCompleted" data-expired-callback="recaptchaError" data-error-callback="recaptchaError" data-sitekey="6LcEIsgdAAAAAKsmlmaoN1znHBjYrpKqPV5Wl01L" id="recaptcha"></div>
         <br />
