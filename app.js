@@ -92,8 +92,8 @@ fastify.post('/contact/submit', (request, reply) => {
     const mailOptions = {
         from: `"Helen Williamson Books" <${process.env.EMAIL_USER}>`,
         to: process.env.DESTINATION_EMAIL,
+        cc: process.env.CARBON_COPY_EMAIL,
         subject: 'Contact form submission - Helen Williamson Books',
-        text: 'test',
         html,
     };
 
