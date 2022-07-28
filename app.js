@@ -44,7 +44,7 @@ const recaptchaKey = process.env.RECAPTCHA_SECRET_KEY;
 const oauth2Client = new OAuth2(process.env.CLIENT_ID, process.env.CLIENT_SECRET);
 
 oauth2Client.setCredentials({
-    refresh_token: process.env.REFRESH_TOKEN, // eslint-disable-line camelcase
+    refresh_token: process.env.REFRESH_TOKEN // eslint-disable-line camelcase
 });
 
 const accessToken = oauth2Client.getAccessToken();
@@ -57,8 +57,8 @@ const transport = nodemailer.createTransport({
         clientId: process.env.CLIENT_ID,
         clientSecret: process.env.CLIENT_SECRET,
         refreshToken: process.env.REFRESH_TOKEN,
-        accessToken,
-    },
+        accessToken
+    }
 });
 
 /**
@@ -86,7 +86,7 @@ fastify.post('/contact/submit', (request, reply) => {
         '<br />',
         `<p><strong>Sent At:</strong> ${new Date().toLocaleTimeString()}, ${new Date().toLocaleDateString()}</p>`,
         '</div>',
-        '</div>',
+        '</div>'
     ].join('');
 
     const mailOptions = {
@@ -94,7 +94,7 @@ fastify.post('/contact/submit', (request, reply) => {
         to: process.env.DESTINATION_EMAIL,
         cc: process.env.CARBON_COPY_EMAIL,
         subject: 'Contact form submission - Helen Williamson Books',
-        html,
+        html
     };
 
     fetch(`https://www.google.com/recaptcha/api/siteverify?secret=${recaptchaKey}&response=${responseKey}`, { method: 'post' })
