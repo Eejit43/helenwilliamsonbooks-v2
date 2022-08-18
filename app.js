@@ -80,7 +80,7 @@ fastify.post('/contact/submit', (request, reply) => {
         '<p><strong>Message:</strong></p>',
         `<div style="background-color: #7588b5; border-radius: 5px; padding: 5px">${escapeHtml(message)}</div>`,
         '<br />',
-        `<p><strong>Sent At:</strong> ${new Date().toLocaleTimeString()}, ${new Date().toLocaleDateString()}</p>`,
+        `<p><strong>Sent At:</strong> ${new Date().toLocaleTimeString('America/New_York')}, ${new Date().toLocaleDateString('America/New_York')}</p>`,
         '</div>',
         '</div>'
     ].join('');

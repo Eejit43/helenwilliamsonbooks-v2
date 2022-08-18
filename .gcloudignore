@@ -19,3 +19,12 @@
 
 # Node.js dependencies:
 node_modules/
+
+# Various files:
+.eslintrc.json
+app-temp.yaml
+CODE_OF_CONDUCT.md
+CODEOWNERS
+LICENSE
+README.md
+SECURITY.md
