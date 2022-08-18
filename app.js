@@ -43,11 +43,7 @@ const recaptchaKey = process.env.RECAPTCHA_SECRET_KEY;
 
 const oauth2Client = new OAuth2(process.env.CLIENT_ID, process.env.CLIENT_SECRET);
 
-oauth2Client.setCredentials({
-    refresh_token: process.env.REFRESH_TOKEN // eslint-disable-line camelcase
-});
-
-const accessToken = oauth2Client.getAccessToken();
+oauth2Client.setCredentials({ refresh_token: process.env.REFRESH_TOKEN }); // eslint-disable-line camelcase
 
 const transport = nodemailer.createTransport({
     service: 'gmail',
@@ -57,7 +53,7 @@ const transport = nodemailer.createTransport({
         clientId: process.env.CLIENT_ID,
         clientSecret: process.env.CLIENT_SECRET,
         refreshToken: process.env.REFRESH_TOKEN,
-        accessToken
+        accessToken: oauth2Client.getAccessToken()
     }
 });
 
