@@ -1,5 +1,4 @@
 /* eslint-env node */
-/* eslint-disable no-console */
 
 import formBodyPlugin from '@fastify/formbody';
 import fastifyStatic from '@fastify/static';
@@ -7,13 +6,10 @@ import pointOfView from '@fastify/view';
 import 'dotenv/config';
 import ejs from 'ejs';
 import Fastify from 'fastify';
-import { google } from 'googleapis';
 import fetch from 'node-fetch';
 import nodemailer from 'nodemailer';
 import path from 'path';
 import { books } from './data.js';
-
-const { OAuth2 } = google.auth;
 
 // Load layouts and static assets
 const fastify = Fastify();
@@ -41,19 +37,11 @@ fastify.get('/contact', (request, reply) => {
 
 const recaptchaKey = process.env.RECAPTCHA_SECRET_KEY;
 
-const oauth2Client = new OAuth2(process.env.CLIENT_ID, process.env.CLIENT_SECRET);
-
-oauth2Client.setCredentials({ refresh_token: process.env.REFRESH_TOKEN }); // eslint-disable-line camelcase
-
 const transport = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        type: 'OAuth2',
         user: process.env.EMAIL_USER,
-        clientId: process.env.CLIENT_ID,
-        clientSecret: process.env.CLIENT_SECRET,
-        refreshToken: process.env.REFRESH_TOKEN,
-        accessToken: oauth2Client.getAccessToken()
+        pass: process.env.EMAIL_PASS
     }
 });
 
