@@ -113,11 +113,13 @@ fastify.setNotFoundHandler((request, reply) => {
     reply.status(404).view('/error.ejs', { title: 'Not Found', script: '', additionalScripts: [] });
 });
 
+const port = process.env.PORT || 3000;
+
 // Start server
-fastify.listen({ port: process.env.PORT || 3000 }, (error) => {
+fastify.listen({ port }, (error) => {
     if (error) {
         fastify.log.error(error);
         process.exit(1);
     }
-    console.log('Server is now listening on http://localhost:3000');
+    console.log(`Server is now listening on http://localhost:${port}`);
 });
