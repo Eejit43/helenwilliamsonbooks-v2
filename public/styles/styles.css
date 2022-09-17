@@ -1,14 +1,7 @@
-/*
- ================
-     IMPORTS
- ================
-*/
-
 @import '/styles/tooltip-styles.css';
 
 /* For Font Awesome icons, see: https://fontawesome.com/v6/search?m=free&s=solid */
-
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css'); /* https://cdnjs.com/libraries/font-awesome */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css'); /* https://cdnjs.com/libraries/font-awesome */
 
 @import url('https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css');
 
