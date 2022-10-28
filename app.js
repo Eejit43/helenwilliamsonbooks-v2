@@ -3,6 +3,7 @@
 import formBodyPlugin from '@fastify/formbody';
 import fastifyStatic from '@fastify/static';
 import pointOfView from '@fastify/view';
+import chalk from 'chalk';
 import 'dotenv/config';
 import ejs from 'ejs';
 import Fastify from 'fastify';
@@ -39,10 +40,7 @@ const recaptchaKey = process.env.RECAPTCHA_SECRET_KEY;
 
 const transport = nodemailer.createTransport({
     service: 'gmail',
-    auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS
-    }
+    auth: { user: process.env.EMAIL_USER, pass: process.env.EMAIL_PASS }
 });
 
 /**
@@ -89,13 +87,9 @@ fastify.post('/contact/submit', (request, reply) => {
                     if (error) {
                         console.log(error);
                         return reply.redirect('/contact?result=error');
-                    } else {
-                        return reply.redirect('/contact?result=success');
-                    }
+                    } else return reply.redirect('/contact?result=success');
                 });
-            } else {
-                return reply.redirect('/contact?result=captcha-failure');
-            }
+            } else return reply.redirect('/contact?result=captcha-failure');
         })
         .catch((error) => {
             console.log(error);
@@ -118,8 +112,10 @@ const port = process.env.PORT || 3000;
 // Start server
 fastify.listen({ port, host: '0.0.0.0' }, (error) => {
     if (error) {
-        fastify.log.error(error);
+        if (error.code === 'EADDRINUSE') console.log(`${chalk.red('[Startup error]:')} Port ${chalk.yellow(port)} is already in use!`);
+        else console.log(`${chalk.red('[Startup error]:')} ${error}`);
         process.exit(1);
     }
-    console.log(`Server is now listening on http://localhost:${port}`);
+
+    console.log(chalk.green('Server is now listening on ') + chalk.blueBright(`http://localhost:${port}`));
 });
