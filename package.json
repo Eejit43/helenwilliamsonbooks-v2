@@ -7,9 +7,8 @@
     "scripts": {
         "start": "node app.js",
         "dev": "nodemon app.js",
-        "deploy": "npm run parse-app-yaml && gcloud app deploy --project=helenwilliamsonbooks --quiet",
-        "logs": "gcloud app logs tail --project=helenwilliamsonbooks",
-        "parse-app-yaml": "node parse-app-yaml.js"
+        "force-deploy": "railway up",
+        "stop-cloud": "railway down --yes"
     },
     "dependencies": {
         "@fastify/formbody": "^7.0.1",

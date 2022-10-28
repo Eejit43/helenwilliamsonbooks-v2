@@ -116,7 +116,7 @@ fastify.setNotFoundHandler((request, reply) => {
 const port = process.env.PORT || 3000;
 
 // Start server
-fastify.listen({ port }, (error) => {
+fastify.listen({ port, host: '0.0.0.0' }, (error) => {
     if (error) {
         fastify.log.error(error);
         process.exit(1);
