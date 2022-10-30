@@ -17,6 +17,8 @@ sendButton.addEventListener('click', submitForm);
 
 let nameComplete, emailComplete, messageComplete, validEmail;
 
+window.captchaState = 'incomplete';
+
 const result = new URL(window.location.href).searchParams.get('result');
 
 if (result === 'success') showAlert('Message sent successfully!', 'success');
@@ -31,11 +33,12 @@ if (result && history.replaceState) {
 
 /**
  * Updates the output error message
+ * @param {boolean} [onSubmit=false] Whether or not the function is being called by clicking the "Submit" button
  */
-window.updateErrorMsg = () => {
+window.updateErrorMsg = (onSubmit = false) => {
     if (nameComplete === false || emailComplete === false || messageComplete === false) errorMessage.innerHTML = 'Please fill out the missing field(s)!<br>';
     else if (validEmail === false) errorMessage.innerHTML = 'Invalid email address!<br>';
-    else if (window.captchaState === 'incomplete') errorMessage.innerHTML = 'Please complete the captcha!<br>';
+    else if (onSubmit && window.captchaState === 'incomplete') errorMessage.innerHTML = 'Please complete the captcha!<br>';
     else if (window.captchaState === 'error') errorMessage.innerHTML = 'An error occurred or the captcha expired, please (re)complete!<br>';
     else errorMessage.innerHTML = '';
 };
@@ -101,7 +104,7 @@ function submitForm() {
     checkMessageField();
 
     if (nameComplete && emailComplete && messageComplete && validEmail && window.captchaState === 'complete') contactForm.submit();
-    else window.updateErrorMsg();
+    else window.updateErrorMsg(true);
 }
 
 /**
