@@ -117,5 +117,5 @@ fastify.listen({ port, host: '0.0.0.0' }, (error) => {
         process.exit(1);
     }
 
-    console.log(chalk.green('Server is now listening on ') + chalk.blueBright(`http://localhost:${port}`));
+    console.log(`${chalk.green('Server is now listening on port')} ${chalk.yellow(port)}${process.env.NODE_ENV !== 'production' ? ` (${chalk.blueBright(`http://localhost:${port}`)})` : ''}`);
 });
