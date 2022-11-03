@@ -2,8 +2,9 @@
 /* eslint-disable no-console */
 
 import chalk from 'chalk';
-import childProcess from 'child_process';
+import { exec, spawn } from 'child_process';
 import { watch } from 'chokidar';
+import 'dotenv/config';
 import * as readline from 'readline';
 
 readline.emitKeypressEvents(process.stdin);
@@ -24,7 +25,7 @@ let running;
  * Starts the process
  */
 function spawnProcess() {
-    running = childProcess.spawn(config.command.name, config.command.args, { stdio: 'inherit', shell: true });
+    running = spawn(config.command.name, config.command.args, { stdio: 'inherit', shell: true });
 }
 
 spawnProcess();
@@ -58,12 +59,20 @@ async function stopProcess() {
     process.exit(0);
 }
 
+/**
+ * Opens the website in the default browser
+ */
+function openWebsite() {
+    logMessage('Opening website...');
+    exec(`open http://localhost:${process.env.PORT || 3000}`);
+}
+
 process.stdin.resume();
 
 if (process.stdin.isTTY) process.stdin.setRawMode(true);
 
 logMessage('Starting!');
-logMessage('Press Ctrl+R to reload or Ctrl+C to stop');
+logMessage('Press Ctrl+R to reload, Ctrl+C to stop, and Ctrl+O to open the website');
 process.on('exit', () => stopProcess());
 
 process.stdin.on('keypress', (_, key) => {
@@ -73,6 +82,8 @@ process.stdin.on('keypress', (_, key) => {
                 return stopProcess();
             case 'r':
                 return restartProcess();
+            case 'o':
+                return openWebsite();
             default:
         }
 });
