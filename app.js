@@ -5,17 +5,21 @@ import fastifyStatic from '@fastify/static';
 import pointOfView from '@fastify/view';
 import chalk from 'chalk';
 import 'dotenv/config';
-import ejs from 'ejs';
 import Fastify from 'fastify';
+import handlebars from 'handlebars';
 import fetch from 'node-fetch';
 import nodemailer from 'nodemailer';
 import path from 'path';
 import { books } from './data.js';
 
+// Add Handlebars helper functions
+handlebars.registerHelper('equals', (a, b) => a === b);
+handlebars.registerHelper('both', (a, b) => a && b);
+
 // Load layouts and static assets
 const fastify = Fastify();
 
-fastify.register(pointOfView, { engine: { ejs }, root: 'views', layout: '/layouts/layout.ejs' });
+fastify.register(pointOfView, { engine: { handlebars }, root: 'views', includeViewExtension: true, layout: '/layouts/layout' });
 
 fastify.register(formBodyPlugin);
 
@@ -24,17 +28,11 @@ const __dirname = path.dirname(new URL(import.meta.url).pathname);
 fastify.register(fastifyStatic, { root: path.join(__dirname, 'public') });
 
 // Register pages
-fastify.get('/', (request, reply) => {
-    reply.view('/index.ejs', { title: 'Home', script: '', additionalScripts: [] });
-});
+fastify.get('/', (request, reply) => reply.view('/index', { title: 'Home', additionalScripts: [] }));
 
-fastify.get('/books', (request, reply) => {
-    reply.view('/pages/books.ejs', { title: 'Books', script: '', additionalScripts: [], books });
-});
+fastify.get('/books', (request, reply) => reply.view('/pages/books', { title: 'Books', additionalScripts: [], books }));
 
-fastify.get('/contact', (request, reply) => {
-    reply.view('/pages/contact.ejs', { title: 'Info & Contact', script: 'contact-form', additionalScripts: [{ src: 'https://www.google.com/recaptcha/api.js', properties: 'async defer' }] });
-});
+fastify.get('/contact', (request, reply) => reply.view('/pages/contact', { title: 'Info & Contact', script: 'contact-form', additionalScripts: [{ link: 'https://www.google.com/recaptcha/api.js', properties: 'async defer' }] }));
 
 const recaptchaKey = process.env.RECAPTCHA_SECRET_KEY;
 
@@ -100,11 +98,11 @@ fastify.post('/contact/submit', (request, reply) => {
 // Setup error handlers
 fastify.setErrorHandler((error, request, reply) => {
     console.log(error);
-    reply.status(error.statusCode || 500).view('/error.ejs', { title: 'Internal Server Error', script: '', additionalScripts: [] });
+    reply.status(error.statusCode || 500).view('/error', { title: 'Internal Server Error', additionalScripts: [] });
 });
 
 fastify.setNotFoundHandler((request, reply) => {
-    reply.status(404).view('/error.ejs', { title: 'Not Found', script: '', additionalScripts: [] });
+    reply.status(404).view('/error', { title: 'Not Found', additionalScripts: [] });
 });
 
 const port = process.env.PORT || 3000;

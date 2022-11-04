@@ -17,8 +17,8 @@
         "chalk": "^5.1.2",
         "chokidar": "^3.5.3",
         "dotenv": "^16.0.0",
-        "ejs": "^3.1.8",
         "fastify": "^4.8.1",
+        "handlebars": "^4.7.7",
         "js-yaml": "^4.1.0",
         "node-fetch": "^3.2.7",
         "nodemailer": "^6.7.7"

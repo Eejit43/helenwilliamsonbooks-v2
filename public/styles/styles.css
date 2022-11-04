@@ -73,6 +73,7 @@ div.paragraph {
 
 .container {
     margin: 0 auto;
+    margin-bottom: 30px;
     max-width: 960px;
     width: 85%;
 }
