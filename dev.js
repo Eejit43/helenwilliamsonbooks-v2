@@ -10,7 +10,6 @@ import * as readline from 'readline';
 readline.emitKeypressEvents(process.stdin);
 
 const config = {
-    cwd: '../',
     command: {
         name: 'node',
         args: ['app.js']
