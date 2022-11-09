@@ -37,8 +37,6 @@ function logMessage(...message) {
     console.log(`${chalk.blue('[Auto Reload]:')}`, ...message);
 }
 
-process.on('stdout', (...data) => console.log(...data));
-
 /**
  * Restarts the process
  */
