@@ -10,7 +10,13 @@ import handlebars from 'handlebars';
 import fetch from 'node-fetch';
 import nodemailer from 'nodemailer';
 import path from 'path';
+import sass from 'node-sass';
 import { books } from './data.js';
+
+// Compile scss
+sass.renderSync({ file: './sass/styles.scss', outFile: './public/styles/styles.css', sourceMap: false });
+
+console.log(`${chalk.blue('Successfully compiled')} ${chalk.red('scss')}${chalk.blue('!')}`);
 
 // Add Handlebars helper functions
 handlebars.registerHelper('equals', (a, b) => a === b);

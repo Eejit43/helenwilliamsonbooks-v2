@@ -14,7 +14,7 @@ const config = {
         name: 'node',
         args: ['app.js']
     },
-    watch: ['js', 'hbs', 'css'].map((ext) => `**/*.${ext}`),
+    watch: ['js', 'hbs', 'scss'].map((ext) => `**/*.${ext}`),
     ignore: '**/node_modules/**'
 };
 
