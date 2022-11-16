@@ -4,7 +4,6 @@
 import chalk from 'chalk';
 import { exec, spawn } from 'child_process';
 import { watch } from 'chokidar';
-import 'dotenv/config';
 import * as readline from 'readline';
 
 readline.emitKeypressEvents(process.stdin);
