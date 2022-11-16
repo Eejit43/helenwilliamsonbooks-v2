@@ -6,15 +6,17 @@ import pointOfView from '@fastify/view';
 import chalk from 'chalk';
 import 'dotenv/config';
 import Fastify from 'fastify';
+import { writeFileSync } from 'fs';
 import handlebars from 'handlebars';
 import fetch from 'node-fetch';
 import nodemailer from 'nodemailer';
 import path from 'path';
-import sass from 'node-sass';
+import sass from 'sass';
 import { books } from './data.js';
 
 // Compile scss
-sass.renderSync({ file: './sass/styles.scss', outFile: './public/styles/styles.css', sourceMap: false });
+const compressed = sass.compile('./sass/styles.scss', { style: 'compressed' });
+writeFileSync('./public/styles/styles.css', compressed.css);
 
 console.log(`${chalk.blue('Successfully compiled')} ${chalk.red('scss')}${chalk.blue('!')}`);
 
@@ -57,9 +59,7 @@ export function escapeHtml(input) {
 }
 
 fastify.post('/contact/submit', (request, reply) => {
-    const { name, email, message } = request.body;
-
-    const responseKey = request.body['g-recaptcha-response'];
+    const { name, email, message, 'g-recaptcha-response': responseKey } = request.body;
 
     const html = [
         '<div style="font-family: \'Verdana\', sans-serif; color: #20242c">',
@@ -90,14 +90,14 @@ fastify.post('/contact/submit', (request, reply) => {
                 transport.sendMail(mailOptions, (error) => {
                     if (error) {
                         console.log(error);
-                        return reply.redirect('/contact?result=error');
-                    } else return reply.redirect('/contact?result=success');
+                        return reply.send('error');
+                    } else return reply.send('success');
                 });
-            } else return reply.redirect('/contact?result=captcha-failure');
+            } else return reply.send('captcha-failure');
         })
         .catch((error) => {
             console.log(error);
-            return reply.redirect('/contact?result=error');
+            return reply.send('error');
         });
 });
 

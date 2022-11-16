@@ -4,4 +4,4 @@
 node_modules/
 .env
 
-public/styles
+public/styles/styles.css

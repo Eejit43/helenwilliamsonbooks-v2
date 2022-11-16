@@ -15,8 +15,8 @@ export function showAlert(text, color, duration) {
         duration: duration || 4000,
         position: 'center',
         style: {
-            background: '#fafbfc',
-            border: '1px solid rgba(27, 31, 35, 0.15)',
+            background: '#c1e7fb',
+            border: '1px solid #b4b4b4',
             borderRadius: '6px',
             boxShadow: 'none',
             color: color || '#009c3f',
