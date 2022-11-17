@@ -14,7 +14,7 @@ const config = {
         args: ['run', 'node', 'app.js']
     },
     watch: ['js', 'hbs', 'scss'].map((ext) => `**/*.${ext}`),
-    ignore: '**/node_modules/**'
+    ignore: ['**/node_modules/**', 'dev.js']
 };
 
 let running;
@@ -86,7 +86,7 @@ process.stdin.on('keypress', (_, key) => {
 
 let restarting = false;
 
-watch(config.watch).on('change', async () => {
+watch(config.watch, { ignored: config.ignore }).on('change', async () => {
     if (restarting) return;
     restarting = true;
     await restartProcess();
