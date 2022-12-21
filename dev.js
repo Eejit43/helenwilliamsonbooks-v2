@@ -11,7 +11,7 @@ readline.emitKeypressEvents(process.stdin);
 const config = {
     command: {
         name: 'railway',
-        args: ['run', 'node', 'app.js']
+        args: ['run', 'node', '--max-old-space-size=100', 'app.js']
     },
     watch: ['js', 'hbs', 'scss'].map((ext) => `**/*.${ext}`),
     ignore: ['**/node_modules/**', 'dev.js']

@@ -5,7 +5,7 @@
     "type": "module",
     "main": "app.js",
     "scripts": {
-        "start": "node app.js",
+        "start": "node --max-old-space-size=100 app.js",
         "dev": "node ./dev.js",
         "force-deploy": "railway up",
         "logs": "railway logs"
