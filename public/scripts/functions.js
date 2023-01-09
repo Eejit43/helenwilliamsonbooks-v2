@@ -1,4 +1,4 @@
-import toastify from 'https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.11.2/toastify-es.js';
+import toastify from 'https://cdn.jsdelivr.net/npm/toastify-js/src/toastify-es.js';
 
 /**
  * Displays a popup alert
