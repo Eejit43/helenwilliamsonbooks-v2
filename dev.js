@@ -5,6 +5,8 @@ import chalk from 'chalk';
 import { exec, spawn } from 'child_process';
 import { watch } from 'chokidar';
 import * as readline from 'readline';
+import treeKill from 'tree-kill';
+import util from 'util';
 
 readline.emitKeypressEvents(process.stdin);
 
@@ -16,6 +18,8 @@ const config = {
     watch: ['js', 'hbs', 'scss'].map((ext) => `**/*.${ext}`),
     ignore: ['**/node_modules/**', 'dev.js']
 };
+
+const kill = util.promisify(treeKill);
 
 let running;
 
@@ -41,7 +45,7 @@ function logMessage(...message) {
  */
 async function restartProcess() {
     logMessage('Restarting...');
-    await running.kill();
+    await kill(running.pid);
     spawnProcess();
     await new Promise((resolve) => setTimeout(resolve, 500));
 }
@@ -50,8 +54,8 @@ async function restartProcess() {
  * Stops the process
  */
 async function stopProcess() {
-    await running.kill();
     logMessage('Killing process...');
+    await kill(running.pid);
     process.exit(0);
 }
 
