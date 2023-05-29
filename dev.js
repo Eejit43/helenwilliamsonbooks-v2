@@ -4,6 +4,7 @@
 import chalk from 'chalk';
 import { exec, spawn } from 'child_process';
 import { watch } from 'chokidar';
+import { consola } from 'consola';
 import * as readline from 'readline';
 import treeKill from 'tree-kill';
 import util from 'util';
@@ -37,7 +38,7 @@ spawnProcess();
  * @param  {...string} message The message(s) to log
  */
 function logMessage(...message) {
-    console.log(`${chalk.blue('[Auto Reload]:')}`, ...message);
+    consola.log(`${chalk.blue('[Auto Reload]:')}`, ...message);
 }
 
 /**

@@ -12,12 +12,13 @@ import nodemailer from 'nodemailer';
 import path from 'path';
 import sass from 'sass';
 import { books } from './data.js';
+import { consola } from 'consola';
 
 // Compile scss
 const compressed = sass.compile('./sass/styles.scss', { style: 'compressed' });
 writeFileSync('./public/styles/styles.css', compressed.css);
 
-console.log(`${chalk.blue('Successfully compiled')} ${chalk.red('scss')}${chalk.blue('!')}`);
+consola.success(`${chalk.blue('Successfully compiled')} ${chalk.red('scss')}${chalk.blue('!')}`);
 
 // Add Handlebars helper functions
 handlebars.registerHelper('equals', (a, b) => a === b);
@@ -88,21 +89,21 @@ fastify.post('/contact/submit', (request, reply) => {
             if (googleResponse.success) {
                 transport.sendMail(mailOptions, (error) => {
                     if (error) {
-                        console.log(error);
+                        consola.error(error);
                         return reply.send('error');
                     } else return reply.send('success');
                 });
             } else return reply.send('captcha-failure');
         })
         .catch((error) => {
-            console.log(error);
+            consola.error(error);
             return reply.send('error');
         });
 });
 
 // Setup error handlers
 fastify.setErrorHandler((error, request, reply) => {
-    console.log(error);
+    consola.error(error);
     reply.status(error.statusCode || 500).view('/error', { title: 'Internal Server Error', additionalScripts: [] });
 });
 
@@ -115,10 +116,10 @@ const port = process.env.PORT || 3000;
 // Start server
 fastify.listen({ port, host: '0.0.0.0' }, (error) => {
     if (error) {
-        if (error.code === 'EADDRINUSE') console.log(`${chalk.red('[Startup error]:')} Port ${chalk.yellow(port)} is already in use!`);
-        else console.log(`${chalk.red('[Startup error]:')} ${error}`);
+        if (error.code === 'EADDRINUSE') consola.error(`${chalk.red('[Startup error]:')} Port ${chalk.yellow(port)} is already in use!`);
+        else consola.error(`${chalk.red('[Startup error]:')} ${error}`);
         process.exit(1);
     }
 
-    console.log(`${chalk.green('Server is now listening on port')} ${chalk.yellow(port)}${process.env.NODE_ENV !== 'production' ? ` (${chalk.blueBright(`http://localhost:${port}`)})` : ''}`);
+    consola.success(`${chalk.green('Server is now listening on port')} ${chalk.yellow(port)}${process.env.NODE_ENV !== 'production' ? ` (${chalk.blueBright(`http://localhost:${port}`)})` : ''}`);
 });
