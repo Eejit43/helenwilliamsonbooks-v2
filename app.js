@@ -4,18 +4,18 @@ import formBodyPlugin from '@fastify/formbody';
 import fastifyStatic from '@fastify/static';
 import pointOfView from '@fastify/view';
 import chalk from 'chalk';
+import { consola } from 'consola';
 import Fastify from 'fastify';
 import { writeFileSync } from 'fs';
 import handlebars from 'handlebars';
 import fetch from 'node-fetch';
 import nodemailer from 'nodemailer';
 import path from 'path';
-import sass from 'sass';
+import { compile as compileSass } from 'sass';
 import { books } from './data.js';
-import { consola } from 'consola';
 
 // Compile scss
-const compressed = sass.compile('./sass/styles.scss', { style: 'compressed' });
+const compressed = compileSass('./sass/styles.scss', { style: 'compressed' });
 writeFileSync('./public/styles/styles.css', compressed.css);
 
 consola.success(`${chalk.blue('Successfully compiled')} ${chalk.red('scss')}${chalk.blue('!')}`);
