@@ -4,6 +4,7 @@
     "private": true,
     "type": "module",
     "main": "app.js",
+    "packageManager": "pnpm@8.6.2",
     "scripts": {
         "start": "node --max-old-space-size=100 app.js",
         "dev": "node ./dev.js",
