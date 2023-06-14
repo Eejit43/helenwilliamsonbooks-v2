@@ -8,7 +8,6 @@ import { consola } from 'consola';
 import Fastify from 'fastify';
 import { writeFileSync } from 'fs';
 import handlebars from 'handlebars';
-import fetch from 'node-fetch';
 import nodemailer from 'nodemailer';
 import path from 'path';
 import { compile as compileSass } from 'sass';
