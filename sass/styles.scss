@@ -330,3 +330,8 @@ nav ul li#active a {
         text-decoration: none;
     }
 }
+
+.form-control,
+.form-control:focus {
+    background-color: #ffffff;
+}
