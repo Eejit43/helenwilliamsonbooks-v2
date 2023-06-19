@@ -2,7 +2,7 @@
     "name": "helenwilliamsonbooks",
     "private": true,
     "type": "module",
-    "packageManager": "pnpm@8.6.2",
+    "packageManager": "pnpm@8.6.3",
     "scripts": {
         "start": "node --max-old-space-size=100 app.js",
         "dev": "node ./dev.js",
@@ -19,10 +19,10 @@
         "fastify": "^4.18.0",
         "handlebars": "^4.7.7",
         "nodemailer": "^6.9.3",
-        "sass": "^1.63.3"
+        "sass": "^1.63.4"
     },
     "devDependencies": {
-        "eslint": "^8.42.0",
+        "eslint": "^8.43.0",
         "eslint-plugin-jsdoc": "^46.2.6",
         "tree-kill": "^1.2.2"
     }
