@@ -1,0 +1,8 @@
+{
+    "extends": "@tsconfig/recommended/tsconfig.json",
+    "compilerOptions": {
+        "lib": ["DOM", "DOM.Iterable"],
+        "removeComments": true
+    },
+    "include": ["*.ts"]
+}
