@@ -73,14 +73,14 @@ fastify.post('/contact/submit', (request, reply) => {
     fetch(`https://www.google.com/recaptcha/api/siteverify?secret=${recaptchaKey}&response=${responseKey}`, { method: 'post' })
         .then((response) => response.json())
         .then((googleResponse: { success: boolean }) => {
-            if (googleResponse.success) {
+            if (googleResponse.success)
                 transport.sendMail(mailOptions, (error) => {
                     if (error) {
                         consola.error(error);
                         return reply.send('error');
                     } else return reply.send('success');
                 });
-            } else return reply.send('captcha-failure');
+            else return reply.send('captcha-failure');
         })
         .catch((error) => {
             consola.error(error);

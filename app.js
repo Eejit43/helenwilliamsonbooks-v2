@@ -51,7 +51,7 @@ fastify.post("/contact/submit", (request, reply) => {
     html
   };
   fetch(`https://www.google.com/recaptcha/api/siteverify?secret=${recaptchaKey}&response=${responseKey}`, { method: "post" }).then((response) => response.json()).then((googleResponse) => {
-    if (googleResponse.success) {
+    if (googleResponse.success)
       transport.sendMail(mailOptions, (error) => {
         if (error) {
           consola.error(error);
@@ -59,7 +59,7 @@ fastify.post("/contact/submit", (request, reply) => {
         } else
           return reply.send("success");
       });
-    } else
+    else
       return reply.send("captcha-failure");
   }).catch((error) => {
     consola.error(error);
