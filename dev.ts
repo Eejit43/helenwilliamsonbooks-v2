@@ -4,12 +4,12 @@ import chalk from 'chalk';
 import { exec, spawn } from 'child_process';
 import { watch } from 'chokidar';
 import { consola } from 'consola';
-import { build } from 'esbuild';
-import { sassPlugin } from 'esbuild-sass-plugin';
-import { glob } from 'glob';
 import * as readline from 'readline';
 import treeKill from 'tree-kill';
 import util from 'util';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import { compileTypescript } from './compile.js';
 
 readline.emitKeypressEvents(process.stdin);
 
@@ -26,17 +26,11 @@ const kill = util.promisify(treeKill);
 
 let running: ChildProcess | undefined;
 
-const banner = { js: '// This file was automatically compiled from TypeScript. View the original file for a more human-readable version.\n', css: '/* This file was automatically compiled from SCSS. View the original file for a more human-readable version. */\n' };
-
 /**
  * Starts the process
  */
 async function spawnProcess() {
-    await Promise.all([
-        build({ entryPoints: await glob('scripts/*.ts'), outdir: 'public/scripts', platform: 'browser', format: 'esm', target: 'es2017', banner }), //
-        build({ entryPoints: ['app.ts'], outfile: 'app.js', platform: 'node', format: 'esm', target: 'node20', banner }),
-        build({ entryPoints: await glob('styles/*.scss'), outdir: 'public/styles', plugins: [sassPlugin()], target: 'es2017', banner })
-    ]);
+    await compileTypescript();
     consola.success('Successfully compiled TypeScript and SCSS!');
     running = spawn(config.command.name, config.command.args, { stdio: 'inherit', shell: true });
 }

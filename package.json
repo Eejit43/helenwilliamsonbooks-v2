@@ -5,7 +5,8 @@
     "packageManager": "pnpm@8.6.3",
     "scripts": {
         "start": "node --no-warnings --max-old-space-size=100 app.js",
-        "dev": "npx ts-node --esm dev.ts",
+        "dev": "pnpm run build && node dev.js",
+        "build": "node compile.js",
         "force-deploy": "railway up",
         "logs": "railway logs"
     },
