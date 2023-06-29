@@ -1,7 +1,5 @@
-import type { ChildProcess } from 'child_process';
-
 import chalk from 'chalk';
-import { exec, spawn } from 'child_process';
+import { ChildProcess, exec, spawn } from 'child_process';
 import { watch } from 'chokidar';
 import { consola } from 'consola';
 import * as readline from 'readline';
