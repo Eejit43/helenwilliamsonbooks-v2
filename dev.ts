@@ -5,8 +5,7 @@ import { consola } from 'consola';
 import * as readline from 'readline';
 import treeKill from 'tree-kill';
 import util from 'util';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
+// @ts-ignore (better to leave this as JS to reduce startup time)
 import { compileTypescript } from './compile.js';
 
 readline.emitKeypressEvents(process.stdin);

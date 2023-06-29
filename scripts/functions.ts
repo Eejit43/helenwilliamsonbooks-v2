@@ -1,4 +1,16 @@
+// @ts-ignore (URL import, types added below)
 import toastify from 'https://cdn.jsdelivr.net/npm/toastify-js/src/toastify-es.js';
+
+declare function toastify(options: {
+    text: string;
+    duration: number;
+    position: string;
+    style: {
+        [key: string]: string;
+    };
+}): {
+    showToast: () => void;
+};
 
 /**
  * Displays a popup alert
