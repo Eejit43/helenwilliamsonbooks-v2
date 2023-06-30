@@ -77,7 +77,7 @@ logMessage('Starting!');
 logMessage('Press Ctrl+R to reload, Ctrl+C to stop, and Ctrl+O to open the website');
 process.on('exit', () => stopProcess());
 
-process.stdin.on('keypress', (_, key: { ctrl: boolean; name: string }) => {
+process.stdin.on('keypress', (string, key: { ctrl: boolean; name: string }) => {
     if (key.ctrl)
         switch (key.name) {
             case 'c':

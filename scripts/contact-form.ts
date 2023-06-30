@@ -32,7 +32,7 @@ contactForm.addEventListener('submit', async (event) => {
                 name: nameInput.value,
                 email: emailInput.value,
                 message: messageInput.value,
-                'g-recaptcha-response': captchaMessage.value // eslint-disable-line @typescript-eslint/naming-convention
+                'g-recaptcha-response': captchaMessage.value
             })
         });
 
