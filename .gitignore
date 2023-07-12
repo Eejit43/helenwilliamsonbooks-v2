@@ -2,7 +2,7 @@
 
 node_modules/
 
-app.js
-dev.js
-public/scripts
+*.js
+!compile.js
+
 public/styles/styles.css
