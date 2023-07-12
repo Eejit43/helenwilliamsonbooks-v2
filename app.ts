@@ -29,7 +29,7 @@ fastify.get('/books', (request, reply) => reply.view('/pages/books', { title: 'B
 
 fastify.get('/contact', (request, reply) => reply.view('/pages/contact', { title: 'Info & Contact', script: 'contact-form', additionalScripts: [{ link: 'https://www.google.com/recaptcha/api.js', properties: 'async defer' }] }));
 
-const recaptchaKey = process.env.RECAPTCHA_SECRET_KEY as string;
+const recaptchaKey = process.env.RECAPTCHA_SECRET_KEY!;
 
 const transport = nodemailer.createTransport({
     service: 'gmail',
@@ -37,9 +37,8 @@ const transport = nodemailer.createTransport({
 });
 
 /**
- * Escapes HTML syntax in a string
- * @param {string} input String to be modified
- * @returns {string} Formatted string
+ * Escapes HTML syntax in a string.
+ * @param input String to be modified.
  */
 function escapeHtml(input: string): string {
     return input.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#039;');
@@ -63,7 +62,7 @@ fastify.post('/contact/submit', (request, reply) => {
     ].join('');
 
     const mailOptions = {
-        from: `"Helen Williamson Books" <${process.env.EMAIL_USER as string}>`,
+        from: `"Helen Williamson Books" <${process.env.EMAIL_USER}>`,
         to: process.env.DESTINATION_EMAIL,
         cc: process.env.CARBON_COPY_EMAIL,
         subject: 'Contact form submission - Helen Williamson Books',
@@ -91,7 +90,7 @@ fastify.post('/contact/submit', (request, reply) => {
 // Setup error handlers
 fastify.setErrorHandler((error, request, reply) => {
     consola.error(error);
-    reply.status(error.statusCode || 500).view('/error', { title: 'Internal Server Error', additionalScripts: [] });
+    reply.status(error.statusCode ?? 500).view('/error', { title: 'Internal Server Error', additionalScripts: [] });
 });
 
 fastify.setNotFoundHandler((request, reply) => {

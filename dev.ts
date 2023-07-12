@@ -24,7 +24,7 @@ const kill = util.promisify(treeKill);
 let running: ChildProcess | undefined;
 
 /**
- * Starts the process
+ * Starts the process.
  */
 async function spawnProcess() {
     await compileTypescript();
@@ -35,38 +35,38 @@ async function spawnProcess() {
 await spawnProcess();
 
 /**
- * Logs a message to the console
- * @param  {...string} message The message(s) to log
+ * Logs a message to the console.
+ * @param message The message(s) to log.
  */
 function logMessage(...message: string[]) {
     consola.log(`${chalk.blue('[Auto Reload]:')}`, ...message);
 }
 
 /**
- * Restarts the process
+ * Restarts the process.
  */
 async function restartProcess() {
     logMessage('Restarting...');
-    await kill((running as ChildProcess).pid as number);
+    await kill(running!.pid!);
     await spawnProcess();
     await new Promise((resolve) => setTimeout(resolve, 500));
 }
 
 /**
- * Stops the process
+ * Stops the process.
  */
 async function stopProcess() {
     logMessage('Killing process...');
-    await kill((running as ChildProcess).pid as number);
+    await kill(running!.pid!);
     process.exit(0);
 }
 
 /**
- * Opens the website in the default browser
+ * Opens the website in the default browser.
  */
 function openWebsite() {
     logMessage('Opening website...');
-    exec(`open http://localhost:${process.env.PORT || 3000}`);
+    exec(`open http://localhost:${process.env.PORT ?? 3000}`);
 }
 
 process.stdin.resume();

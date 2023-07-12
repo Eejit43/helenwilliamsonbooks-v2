@@ -4,6 +4,9 @@ import { glob } from 'glob';
 
 const banner = { js: '// This file was automatically compiled from TypeScript. View the original file for a more human-readable version.\n', css: '/* This file was automatically compiled from SCSS. View the original file for a more human-readable version. */\n' };
 
+/**
+ * Compiles all TypeScript files into JavaScript.
+ */
 export async function compileTypescript() {
     return Promise.all([
         build({ entryPoints: await glob('scripts/*.ts'), outdir: 'public/scripts', platform: 'browser', format: 'esm', target: 'es2017', banner }), //

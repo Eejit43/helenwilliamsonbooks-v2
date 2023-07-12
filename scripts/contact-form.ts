@@ -13,7 +13,7 @@ const nameInput = document.getElementById('name') as HTMLInputElement;
 const emailInput = document.getElementById('email') as HTMLInputElement;
 const messageInput = document.getElementById('message') as HTMLTextAreaElement;
 const captchaMessage = document.getElementById('recaptcha-message') as HTMLInputElement;
-const submitButton = document.querySelector('#contact-form button[type="submit"]') as HTMLButtonElement;
+const submitButton = document.querySelector('#contact-form button[type="submit"]') as HTMLButtonElement; // eslint-disable-line @typescript-eslint/non-nullable-type-assertion-style
 const submitButtonSpinner = document.getElementById('submit-spinner') as HTMLSpanElement;
 
 contactForm.addEventListener('submit', async (event) => {
@@ -59,8 +59,8 @@ contactForm.addEventListener('submit', async (event) => {
 });
 
 /**
- * Function used by Google's recaptcha on completion
- * @param {*} response the recaptcha response
+ * Function used by Google's recaptcha on completion.
+ * @param response The recaptcha response.
  */
 window.recaptchaCompleted = (response) => {
     captchaMessage.value = response;
@@ -68,7 +68,7 @@ window.recaptchaCompleted = (response) => {
 };
 
 /**
- * Function used by Google's recaptcha on error
+ * Function used by Google's recaptcha on error.
  */
 window.recaptchaError = () => {
     captchaMessage.value = '';
