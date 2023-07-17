@@ -18,10 +18,13 @@
         "chokidar": "^3.5.3",
         "consola": "^3.2.3",
         "esbuild": "^0.18.11",
+        "esbuild-postcss": "^0.0.4",
         "fastify": "^4.19.2",
         "glob": "^10.3.3",
         "handlebars": "^4.7.7",
-        "nodemailer": "^6.9.3"
+        "nodemailer": "^6.9.3",
+        "postcss": "^8.4.26",
+        "postcss-preset-env": "^9.0.0"
     },
     "devDependencies": {
         "@eejit/eslint-config-typescript": "^1.0.4",
@@ -29,14 +32,12 @@
         "@types/nodemailer": "^6.4.8",
         "@typescript-eslint/eslint-plugin": "^6.0.0",
         "@typescript-eslint/parser": "^6.0.0",
-        "esbuild-sass-plugin": "^2.10.0",
         "eslint": "^8.44.0",
         "eslint-plugin-jsdoc": "^46.4.3",
         "prettier-plugin-organize-imports": "^3.2.2",
         "stylelint": "^15.10.1",
-        "stylelint-config-standard-scss": "^10.0.0",
+        "stylelint-config-standard": "^34.0.0",
         "tree-kill": "^1.2.2",
-        "ts-node": "^10.9.1",
         "typescript": "^5.1.6"
     }
 }

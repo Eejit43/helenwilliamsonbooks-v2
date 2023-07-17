@@ -28,7 +28,7 @@ let running: ChildProcess | undefined;
  */
 async function spawnProcess() {
     await compileTypescript();
-    consola.success('Successfully compiled TypeScript and SCSS!');
+    consola.success('Successfully compiled TypeScript and CSS!');
     running = spawn(config.command.name, config.command.args, { stdio: 'inherit', shell: true });
 }
 

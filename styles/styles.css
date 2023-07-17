@@ -1,15 +1,12 @@
-@import 'https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css';
-@import './font-awesome.css';
-@import 'https://fonts.googleapis.com/css?family=Quattrocento+Sans:400,700,400italic,700italic&subset=latin,latin-ext&display=swap';
-@import 'https://fonts.googleapis.com/css?family=Quattrocento:400,700&subset=latin,latin-ext&display=swap';
-
-/* Variables */
-
-$font-family-sans: 'Quattrocento Sans', sans-serif;
-$font-family-regular: 'Quattrocento', serif;
+@import url('https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css');
+@import url('./font-awesome.css');
+@import url('https://fonts.googleapis.com/css?family=Quattrocento+Sans:400,700,400italic,700italic&subset=latin,latin-ext&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Quattrocento:400,700&subset=latin,latin-ext&display=swap');
 
 :root {
     --bs-body-bg: #fffeed;
+    --font-family-sans: 'Quattrocento Sans', sans-serif;
+    --font-family-regular: 'Quattrocento', serif;
 }
 
 /* General */
@@ -21,7 +18,7 @@ html {
 
 body {
     color: #3e3e3e;
-    font-family: $font-family-sans;
+    font-family: var(--font-family-sans);
     font-size: 16px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -52,7 +49,7 @@ nav a {
 
 h2 {
     color: black;
-    font-family: $font-family-regular;
+    font-family: var(--font-family-regular);
     font-size: 24px;
     font-weight: 700;
     line-height: 1.2em;
@@ -136,7 +133,7 @@ hr {
 }
 
 .tooltip-inner {
-    font-family: $font-family-sans;
+    font-family: var(--font-family-sans);
 }
 
 /* Navigation Bar/Header */
@@ -144,7 +141,7 @@ hr {
 .logo {
     color: black;
     display: block;
-    font-family: $font-family-sans;
+    font-family: var(--font-family-sans);
     font-size: 40px;
     font-weight: 700;
     letter-spacing: 0.04em;
@@ -175,7 +172,7 @@ nav ul li {
 
 nav ul li a {
     color: #b9b9b9;
-    font-family: $font-family-sans;
+    font-family: var(--font-family-sans);
     font-size: 16px;
     font-weight: 400;
     letter-spacing: 0.07em;
