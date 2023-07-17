@@ -1,12 +1,12 @@
-@import url('https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css');
-@import url('./font-awesome.css');
-@import url('https://fonts.googleapis.com/css?family=Quattrocento+Sans:400,700,400italic,700italic&subset=latin,latin-ext&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Quattrocento:400,700&subset=latin,latin-ext&display=swap');
+@import url("https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css");
+@import url("./font-awesome.css");
+@import url("https://fonts.googleapis.com/css?family=Quattrocento+Sans:400,700,400italic,700italic&subset=latin,latin-ext&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Quattrocento:400,700&subset=latin,latin-ext&display=swap");
 
 :root {
     --bs-body-bg: #fffeed;
-    --font-family-sans: 'Quattrocento Sans', sans-serif;
-    --font-family-regular: 'Quattrocento', serif;
+    --font-family-sans: "Quattrocento Sans", sans-serif;
+    --font-family-regular: "Quattrocento", serif;
 }
 
 /* General */
@@ -127,7 +127,7 @@ hr {
     width: 350px;
 }
 
-[data-bs-toggle='tooltip'] {
+[data-bs-toggle="tooltip"] {
     cursor: pointer;
     text-decoration: underline dotted;
 }
