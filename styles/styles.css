@@ -35,6 +35,7 @@ a {
     }
 }
 
+/* stylelint-disable-next-line csstools/use-nesting */
 nav a {
     color: #b9b9b9;
 
@@ -106,17 +107,17 @@ hr {
     padding-bottom: 20px;
     width: 100%;
     height: 100%;
-}
 
-#overlay .noscript-message {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #f55;
-    font-weight: bold;
-    font-size: 30px;
-    line-height: 100%;
+    & .noscript-message {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #f55;
+        font-weight: bold;
+        font-size: 30px;
+        line-height: 100%;
+    }
 }
 
 .book-cover {
@@ -156,42 +157,42 @@ hr {
 
 nav {
     text-align: center;
-}
 
-nav ul {
-    display: inline-block;
-    vertical-align: top;
-    padding-inline-start: 0;
-    list-style-type: none;
-}
+    & ul {
+        display: inline-block;
+        vertical-align: top;
+        padding-inline-start: 0;
+        list-style-type: none;
 
-nav ul li {
-    display: inline-block;
-    position: relative;
-}
+        & li {
+            display: inline-block;
+            position: relative;
 
-nav ul li a {
-    transition: color 300ms linear;
-    padding: 0 15px;
-    color: #b9b9b9;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 19px;
-    font-family: var(--font-family-sans);
-    letter-spacing: 0.07em;
-    text-transform: uppercase;
+            & a {
+                transition: color 300ms linear;
+                padding: 0 15px;
+                color: #b9b9b9;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 19px;
+                font-family: var(--font-family-sans);
+                letter-spacing: 0.07em;
+                text-transform: uppercase;
 
-    @media (width <= 700px) {
-        font-size: 14px;
+                @media (width <= 700px) {
+                    font-size: 14px;
+                }
+
+                &:hover {
+                    color: #333;
+                }
+            }
+
+            &#active a {
+                color: #333;
+            }
+        }
     }
-
-    &:hover {
-        color: #333;
-    }
-}
-
-nav ul li#active a {
-    color: #333;
 }
 
 .banner-wrap {

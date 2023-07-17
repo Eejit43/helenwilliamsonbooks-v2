@@ -85,6 +85,9 @@ devDependencies:
   stylelint-config-standard:
     specifier: ^34.0.0
     version: 34.0.0(stylelint@15.10.1)
+  stylelint-use-nesting:
+    specifier: ^4.1.0
+    version: 4.1.0(stylelint@15.10.1)
   tree-kill:
     specifier: ^1.2.2
     version: 1.2.2
@@ -3212,6 +3215,15 @@ packages:
     dependencies:
       stylelint: 15.10.1
       stylelint-config-recommended: 13.0.0(stylelint@15.10.1)
+    dev: true
+
+  /stylelint-use-nesting@4.1.0(stylelint@15.10.1):
+    resolution: {integrity: sha512-DDI+T/8kGIxdcfPClxp/oS2cFSWvd+hoV54clF7lnrlSvYHOQouaxgMOuPmkIQig0suss/PrAw5GwBYoSu8WoQ==}
+    engines: {node: '>=16.0.0'}
+    peerDependencies:
+      stylelint: '>= 10'
+    dependencies:
+      stylelint: 15.10.1
     dev: true
 
   /stylelint@15.10.1:
