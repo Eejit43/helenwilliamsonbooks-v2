@@ -21,7 +21,7 @@ const config = {
 
 const kill = util.promisify(treeKill);
 
-let running: ChildProcess | undefined;
+let running: ChildProcess;
 
 /**
  * Starts the process.
@@ -47,7 +47,7 @@ function logMessage(...message: string[]) {
  */
 async function restartProcess() {
     logMessage('Restarting...');
-    await kill(running!.pid!);
+    await kill(running.pid!);
     await spawnProcess();
     await new Promise((resolve) => setTimeout(resolve, 500));
 }
@@ -57,7 +57,7 @@ async function restartProcess() {
  */
 async function stopProcess() {
     logMessage('Killing process...');
-    await kill(running!.pid!);
+    await kill(running.pid!);
     process.exit(0);
 }
 
