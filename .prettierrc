@@ -12,5 +12,5 @@
             "options": { "singleQuote": false }
         }
     ],
-    "plugins": ["prettier-plugin-organize-imports", "prettier-plugin-css-order"]
+    "plugins": ["prettier-plugin-organize-imports", "prettier-plugin-css-order", "prettier-plugin-packagejson"]
 }
