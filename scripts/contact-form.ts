@@ -8,13 +8,15 @@ declare global {
 
 import { showAlert } from './functions.js';
 
-const contactForm = document.getElementById('contact-form') as HTMLFormElement;
-const nameInput = document.getElementById('name') as HTMLInputElement;
-const emailInput = document.getElementById('email') as HTMLInputElement;
-const messageInput = document.getElementById('message') as HTMLTextAreaElement;
-const captchaMessage = document.getElementById('recaptcha-message') as HTMLInputElement;
-const submitButton = document.querySelector('#contact-form button[type="submit"]') as HTMLButtonElement; // eslint-disable-line @typescript-eslint/non-nullable-type-assertion-style
-const submitButtonSpinner = document.getElementById('submit-spinner') as HTMLSpanElement;
+/* eslint-disable @typescript-eslint/non-nullable-type-assertion-style */
+const contactForm = document.querySelector('#contact-form') as HTMLFormElement;
+const nameInput = document.querySelector('#name') as HTMLInputElement;
+const emailInput = document.querySelector('#email') as HTMLInputElement;
+const messageInput = document.querySelector('#message') as HTMLTextAreaElement;
+const captchaMessage = document.querySelector('#recaptcha-message') as HTMLInputElement;
+const submitButton = document.querySelector('#contact-form button[type="submit"]') as HTMLButtonElement;
+const submitButtonSpinner = document.querySelector('#submit-spinner') as HTMLSpanElement;
+/* eslint-enable @typescript-eslint/non-nullable-type-assertion-style */
 
 contactForm.addEventListener('submit', async (event) => {
     contactForm.classList.add('was-validated');
@@ -24,7 +26,7 @@ contactForm.addEventListener('submit', async (event) => {
     if (contactForm.checkValidity()) {
         submitButtonSpinner.classList.remove('d-none');
 
-        [nameInput, emailInput, messageInput, submitButton].forEach((element) => (element.disabled = true));
+        for (const element of [nameInput, emailInput, messageInput, submitButton]) element.disabled = true;
 
         const result = await fetch('/contact/submit', {
             method: 'POST',
@@ -37,22 +39,24 @@ contactForm.addEventListener('submit', async (event) => {
         });
 
         switch (await result.text()) {
-            case 'success':
+            case 'success': {
                 showAlert('Message sent successfully!', 'success');
                 contactForm.reset();
                 contactForm.classList.remove('was-validated');
                 break;
-            case 'captcha-failure':
+            }
+            case 'captcha-failure': {
                 showAlert('Failed to verify captcha!', 'error');
                 window.grecaptcha.reset();
                 break;
-            case 'error':
-            default:
+            }
+            default: {
                 showAlert('Failed to send message!', 'error');
                 break;
+            }
         }
 
-        [nameInput, emailInput, messageInput, submitButton].forEach((element) => (element.disabled = false));
+        for (const element of [nameInput, emailInput, messageInput, submitButton]) element.disabled = false;
         window.grecaptcha.reset();
         submitButtonSpinner.classList.add('d-none');
     }

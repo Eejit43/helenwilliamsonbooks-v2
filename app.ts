@@ -5,8 +5,8 @@ import chalk from 'chalk';
 import { consola } from 'consola';
 import Fastify, { FastifyError } from 'fastify';
 import handlebars from 'handlebars';
+import path from 'node:path';
 import nodemailer from 'nodemailer';
-import path from 'path';
 import books from './data.json' assert { type: 'json' };
 
 // Add Handlebars helper functions
@@ -41,7 +41,7 @@ const transport = nodemailer.createTransport({
  * @param input String to be modified.
  */
 function escapeHtml(input: string): string {
-    return input.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#039;');
+    return input.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&#039;');
 }
 
 fastify.post('/contact/submit', (request, reply) => {
@@ -97,17 +97,17 @@ fastify.setNotFoundHandler((request, reply) => {
     reply.status(404).view('/error', { title: 'Not Found', additionalScripts: [] });
 });
 
-const port = process.env.PORT ? parseInt(process.env.PORT) : 3000;
+const port = process.env.PORT ? Number.parseInt(process.env.PORT) : 3000;
 
 // Start server
 fastify.listen({ port, host: '0.0.0.0' }, (error) => {
     if (error) {
         if ((error as FastifyError).code === 'EADDRINUSE') consola.error(`${chalk.red('[Startup error]:')} Port ${chalk.yellow(port)} is already in use!`);
         else consola.error(error);
-        process.exit(1);
+        process.exit(1); // eslint-disable-line unicorn/no-process-exit
     }
 
-    consola.success(`${chalk.green('Server is now listening on port')} ${chalk.yellow(port)}${process.env.NODE_ENV !== 'production' ? ` (${chalk.blueBright(`http://localhost:${port}`)})` : ''}`);
+    consola.success(`${chalk.green('Server is now listening on port')} ${chalk.yellow(port)}${process.env.NODE_ENV === 'production' ? '' : ` (${chalk.blueBright(`http://localhost:${port}`)})`}`);
 });
 
 // Custom error/warning handlers

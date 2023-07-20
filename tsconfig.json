@@ -6,5 +6,5 @@
         "resolveJsonModule": true,
         "removeComments": true
     },
-    "include": ["dev.ts", "app.ts"]
+    "include": ["development.ts", "app.ts"]
 }

@@ -1,10 +1,10 @@
 import chalk from 'chalk';
-import { ChildProcess, exec, spawn } from 'child_process';
 import { watch } from 'chokidar';
 import { consola } from 'consola';
-import * as readline from 'readline';
+import { ChildProcess, exec, spawn } from 'node:child_process';
+import * as readline from 'node:readline';
+import util from 'node:util';
 import treeKill from 'tree-kill';
-import util from 'util';
 // @ts-ignore (better to leave this as JS to reduce startup time)
 import { compileTypescript } from './compile.js';
 
@@ -15,8 +15,8 @@ const config = {
         name: 'railway',
         args: ['run', 'node', '--no-warnings', '--max-old-space-size=100', 'app.js']
     },
-    watch: ['ts', 'hbs', 'scss'].map((ext) => `**/*.${ext}`),
-    ignore: ['**/node_modules/**', 'dev.ts']
+    watch: ['ts', 'hbs', 'scss'].map((extension) => `**/*.${extension}`),
+    ignore: ['**/node_modules/**', 'development.ts']
 };
 
 const kill = util.promisify(treeKill);
@@ -58,7 +58,7 @@ async function restartProcess() {
 async function stopProcess() {
     logMessage('Killing process...');
     await kill(running.pid!);
-    process.exit(0);
+    process.exit(0); // eslint-disable-line unicorn/no-process-exit
 }
 
 /**
@@ -80,12 +80,15 @@ process.on('exit', () => stopProcess());
 process.stdin.on('keypress', (string, key: { ctrl: boolean; name: string }) => {
     if (key.ctrl)
         switch (key.name) {
-            case 'c':
+            case 'c': {
                 return stopProcess();
-            case 'r':
+            }
+            case 'r': {
                 return restartProcess();
-            case 'o':
+            }
+            case 'o': {
                 return openWebsite();
+            }
             default:
         }
 });

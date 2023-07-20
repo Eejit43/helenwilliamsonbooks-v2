@@ -1,10 +1,10 @@
-// Adds modal functionality to all images with the "popup-image" class
-
-const modal = document.getElementById('modal') as HTMLDivElement;
-const images = document.querySelectorAll('img.popup-image') as NodeListOf<HTMLImageElement>; // eslint-disable-line @typescript-eslint/no-unnecessary-type-assertion
-const modalImage = document.getElementById('modal-image') as HTMLImageElement;
-const modalCaption = document.getElementById('modal-caption') as HTMLDivElement;
-const closeButton = document.getElementById('close-modal') as HTMLSpanElement;
+/* eslint-disable @typescript-eslint/non-nullable-type-assertion-style */
+const modal = document.querySelector('#modal') as HTMLDivElement;
+const images = document.querySelectorAll('img.popup-image') as NodeListOf<HTMLImageElement>;
+const modalImage = document.querySelector('#modal-image') as HTMLImageElement;
+const modalCaption = document.querySelector('#modal-caption') as HTMLDivElement;
+const closeButton = document.querySelector('#close-modal') as HTMLSpanElement;
+/* eslint-enable @typescript-eslint/non-nullable-type-assertion-style */
 
 for (const image of images)
     image.addEventListener('click', () => {
@@ -13,9 +13,7 @@ for (const image of images)
         modalCaption.innerHTML = image.alt;
     });
 
-[closeButton, modal].forEach((element) => {
-    element.addEventListener('click', () => (modal.style.display = 'none'));
-});
+for (const element of [closeButton, modal]) element.addEventListener('click', () => (modal.style.display = 'none'));
 
 document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape' && modal.style.display === 'block') modal.style.display = 'none';
