@@ -50,29 +50,14 @@ dependencies:
 
 devDependencies:
   '@eejit/eslint-config-typescript':
-    specifier: ^1.1.0
-    version: 1.1.0(@typescript-eslint/eslint-plugin@6.1.0)(@typescript-eslint/parser@6.1.0)(eslint-plugin-jsdoc@46.4.4)(eslint-plugin-unicorn@48.0.0)(eslint@8.45.0)
+    specifier: ^2.0.0
+    version: 2.0.0(typescript@5.1.6)
   '@tsconfig/recommended':
     specifier: ^1.0.2
     version: 1.0.2
   '@types/nodemailer':
     specifier: ^6.4.8
     version: 6.4.8
-  '@typescript-eslint/eslint-plugin':
-    specifier: ^6.1.0
-    version: 6.1.0(@typescript-eslint/parser@6.1.0)(eslint@8.45.0)(typescript@5.1.6)
-  '@typescript-eslint/parser':
-    specifier: ^6.1.0
-    version: 6.1.0(eslint@8.45.0)(typescript@5.1.6)
-  eslint:
-    specifier: ^8.45.0
-    version: 8.45.0
-  eslint-plugin-jsdoc:
-    specifier: ^46.4.4
-    version: 46.4.4(eslint@8.45.0)
-  eslint-plugin-unicorn:
-    specifier: ^48.0.0
-    version: 48.0.0(eslint@8.45.0)
   prettier:
     specifier: ^3.0.0
     version: 3.0.0
@@ -467,20 +452,17 @@ packages:
     dependencies:
       postcss-selector-parser: 6.0.13
 
-  /@eejit/eslint-config-typescript@1.1.0(@typescript-eslint/eslint-plugin@6.1.0)(@typescript-eslint/parser@6.1.0)(eslint-plugin-jsdoc@46.4.4)(eslint-plugin-unicorn@48.0.0)(eslint@8.45.0):
-    resolution: {integrity: sha512-YspwyPgMSii+giXvkVg3WQjfhxJsgyR8f6IjfSyPTJd4QxxyItKdVT17spHi5jqWY+L9QQPPliw2mWIeQdQ/ZQ==}
-    peerDependencies:
-      '@typescript-eslint/eslint-plugin': '*'
-      '@typescript-eslint/parser': '*'
-      eslint: '*'
-      eslint-plugin-jsdoc: '*'
-      eslint-plugin-unicorn: '*'
+  /@eejit/eslint-config-typescript@2.0.0(typescript@5.1.6):
+    resolution: {integrity: sha512-LtfMrQ+bGlg5TbWxyOF6/tbv/pHFPptLunA/1kcrp9ziUkbLYQngoJzQ6wm30XPTY4yn2KVli0WhloZuSZuwEw==}
     dependencies:
       '@typescript-eslint/eslint-plugin': 6.1.0(@typescript-eslint/parser@6.1.0)(eslint@8.45.0)(typescript@5.1.6)
       '@typescript-eslint/parser': 6.1.0(eslint@8.45.0)(typescript@5.1.6)
       eslint: 8.45.0
       eslint-plugin-jsdoc: 46.4.4(eslint@8.45.0)
       eslint-plugin-unicorn: 48.0.0(eslint@8.45.0)
+    transitivePeerDependencies:
+      - supports-color
+      - typescript
     dev: true
 
   /@es-joy/jsdoccomment@0.39.4:

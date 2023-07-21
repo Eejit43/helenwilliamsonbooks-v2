@@ -8,7 +8,6 @@ declare global {
 
 import { showAlert } from './functions.js';
 
-/* eslint-disable @typescript-eslint/non-nullable-type-assertion-style */
 const contactForm = document.querySelector('#contact-form') as HTMLFormElement;
 const nameInput = document.querySelector('#name') as HTMLInputElement;
 const emailInput = document.querySelector('#email') as HTMLInputElement;
@@ -16,7 +15,6 @@ const messageInput = document.querySelector('#message') as HTMLTextAreaElement;
 const captchaMessage = document.querySelector('#recaptcha-message') as HTMLInputElement;
 const submitButton = document.querySelector('#contact-form button[type="submit"]') as HTMLButtonElement;
 const submitButtonSpinner = document.querySelector('#submit-spinner') as HTMLSpanElement;
-/* eslint-enable @typescript-eslint/non-nullable-type-assertion-style */
 
 contactForm.addEventListener('submit', async (event) => {
     contactForm.classList.add('was-validated');

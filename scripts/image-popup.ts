@@ -1,10 +1,8 @@
-/* eslint-disable @typescript-eslint/non-nullable-type-assertion-style */
 const modal = document.querySelector('#modal') as HTMLDivElement;
 const images = document.querySelectorAll('img.popup-image') as NodeListOf<HTMLImageElement>;
 const modalImage = document.querySelector('#modal-image') as HTMLImageElement;
 const modalCaption = document.querySelector('#modal-caption') as HTMLDivElement;
 const closeButton = document.querySelector('#close-modal') as HTMLSpanElement;
-/* eslint-enable @typescript-eslint/non-nullable-type-assertion-style */
 
 for (const image of images)
     image.addEventListener('click', () => {
