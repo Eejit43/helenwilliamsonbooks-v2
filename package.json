@@ -3,9 +3,9 @@
     "type": "module",
     "scripts": {
         "build": "cp compile.ts compile.js && node compile.js",
-        "dev": "pnpm run build && node development.js",
+        "dev": "pnpm run build && node development.js --enable-source-maps",
         "force-deploy": "railway up",
-        "remove-compiled": "find . -type f -name '*.js' ! -path './node_modules/*' ! -path './public/scripts/external/*' -delete && find ./public/styles -type f -name '*.css' ! -name 'font-awesome.css' -delete",
+        "remove-compiled": "find . -type f \\( -name '*.js' -o -name '*.js.map' \\) ! -path './node_modules/*' ! -path './public/scripts/external/*' -delete && find ./public/styles -type f -name '*.css' ! -name 'font-awesome.css' -delete",
         "start": "node --no-warnings --max-old-space-size=100 app.js"
     },
     "dependencies": {

@@ -3,6 +3,7 @@
 node_modules/
 
 *.js
+*.js.map
 
 public/styles
 !public/styles/font-awesome.css
