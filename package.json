@@ -2,9 +2,10 @@
     "name": "helenwilliamsonbooks",
     "type": "module",
     "scripts": {
-        "build": "node compile.js",
+        "build": "cp compile.ts compile.js && node compile.js",
         "dev": "pnpm run build && node development.js",
         "force-deploy": "railway up",
+        "remove-compiled": "find . -type f -name '*.js' ! -path './node_modules/*' ! -path './public/scripts/external/*' -delete && find ./public/styles -type f -name '*.css' ! -name 'font-awesome.css' -delete",
         "start": "node --no-warnings --max-old-space-size=100 app.js"
     },
     "dependencies": {

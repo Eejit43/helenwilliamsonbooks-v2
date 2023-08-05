@@ -3,6 +3,6 @@
 node_modules/
 
 *.js
-!compile.js
 
-public/styles/styles.css
+public/styles
+!public/styles/font-awesome.css

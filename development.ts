@@ -5,7 +5,6 @@ import { ChildProcess, exec, spawn } from 'node:child_process';
 import * as readline from 'node:readline';
 import util from 'node:util';
 import treeKill from 'tree-kill';
-// @ts-ignore (better to leave this as JS to reduce startup time)
 import { compileTypescript } from './compile.js';
 
 readline.emitKeypressEvents(process.stdin);
