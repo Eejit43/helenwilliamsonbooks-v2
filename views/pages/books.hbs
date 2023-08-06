@@ -29,9 +29,11 @@
                                 10 /
                                 <span data-bs-toggle="tooltip" data-bs-title="International Standard Book Number">ISBN</span>
                                 13:</strong>
-                            {{this.isbn.10}}
+                            {{!-- prettier-ignore --}}
+                            {{this.isbn.[10]}}
                             /
-                            {{this.isbn.13}}
+                            {{!-- prettier-ignore --}}
+                            {{this.isbn.[13]}}
                         </div>
                     </div>
                 </td>
