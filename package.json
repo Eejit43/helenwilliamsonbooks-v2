@@ -8,6 +8,7 @@
         "remove-compiled": "find . -type f \\( -name '*.js' -o -name '*.js.map' \\) ! -path './node_modules/*' ! -path './public/scripts/external/*' -delete && find ./public/styles -type f -name '*.css' ! -name 'font-awesome.css' -delete",
         "start": "node --no-warnings --max-old-space-size=100 app.js"
     },
+    "prettier": "@eejit/prettier-config",
     "dependencies": {
         "@fastify/formbody": "^7.4.0",
         "@fastify/static": "^6.10.2",
