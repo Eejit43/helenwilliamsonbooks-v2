@@ -1,33 +1,51 @@
 {{#each books}}
-<span id="{{@key}}"></span>
-<table class="book-table">
-    <tbody>
-        <tr>
-            <td>
-                <img class="book-cover popup-image" src="/images/books/{{@key}}.png" alt="{{this.title}} Cover" />
-            </td>
-            <td>
-                <div class="paragraph">
-                    <strong><a href="#{{@key}}" style="color: unset">{{this.title}}</a></strong>
-                    {{{this.description}}}
-                    <div>
-                        <strong>Type:</strong> {{#if this.prices.paperback}}Paperback{{/if}}{{#if (both this.prices.paperback this.prices.hardcover)}} / {{/if}}{{#if this.prices.hardcover}}Hardcover{{/if}}<br />
-                        <strong>Price:</strong> {{#if this.prices.paperback}}${{this.prices.paperback}}{{/if}}{{#if (both this.prices.paperback this.prices.hardcover)}} / {{/if}}{{#if this.prices.hardcover}}${{this.prices.hardcover}}{{/if}}<br />
-                        <strong>Pages:</strong> {{this.pages}}<br />
-                        <strong>Dimensions:</strong> {{this.width}}" x {{this.height}}"<br />
-                        <strong>Published:</strong> {{this.published}}, {{this.publisher}}<br />
-                        <strong><span data-bs-toggle="tooltip" data-bs-title="International Standard Book Number">ISBN</span> 10 / <span data-bs-toggle="tooltip" data-bs-title="International Standard Book Number">ISBN</span> 13:</strong> {{this.isbn.[10]}} / {{this.isbn.[13]}}
+    <span id="{{@key}}"></span>
+    <table class="book-table">
+        <tbody>
+            <tr>
+                <td>
+                    <img class="book-cover popup-image" src="/images/books/{{@key}}.png" alt="{{this.title}} Cover" />
+                </td>
+                <td>
+                    <div class="paragraph">
+                        <strong><a href="#{{@key}}" style="color: unset">{{this.title}}</a></strong>
+                        {{{this.description}}}
+                        <div>
+                            <strong>Type:</strong>
+                            {{#if this.prices.paperback}}Paperback{{/if}}{{#if (both this.prices.paperback this.prices.hardcover)}} / {{/if}}{{#if this.prices.hardcover}}Hardcover{{/if}}<br />
+                            <strong>Price:</strong>
+                            {{#if this.prices.paperback}}${{this.prices.paperback}}{{/if}}{{#if (both this.prices.paperback this.prices.hardcover)}} / {{/if}}{{#if
+                                this.prices.hardcover
+                            }}${{this.prices.hardcover}}{{/if}}<br />
+                            <strong>Pages:</strong>
+                            {{this.pages}}<br />
+                            <strong>Dimensions:</strong>
+                            {{this.width}}" x
+                            {{this.height}}"<br />
+                            <strong>Published:</strong>
+                            {{this.published}},
+                            {{this.publisher}}<br />
+                            <strong><span data-bs-toggle="tooltip" data-bs-title="International Standard Book Number">ISBN</span>
+                                10 /
+                                <span data-bs-toggle="tooltip" data-bs-title="International Standard Book Number">ISBN</span>
+                                13:</strong>
+                            {{this.isbn.10}}
+                            /
+                            {{this.isbn.13}}
+                        </div>
                     </div>
-                </div>
-            </td>
-        </tr>
-    </tbody>
-</table>
-<div>
-    {{#if this.urls.belleIsle}}<a href="{{this.urls.belleIsle}}" rel="noopener noreferrer" target="_blank"><img src="/images/logos/belle-isle.png" alt="Belle Isle Books" /></a>{{/if}}
-    {{#if this.urls.bookshop}}<a href="{{this.urls.bookshop}}" rel="noopener noreferrer" target="_blank"><img src="/images/logos/bookshop.png" alt="Bookshop.org" /></a>{{/if}}
-    {{#if this.urls.booksAMillion}}<a href="{{this.urls.booksAMillion}}" rel="noopener noreferrer" target="_blank"><img src="/images/logos/books-a-million.png" alt="Books-A-Million" /></a>{{/if}}
-    {{#if this.urls.barnesAndNoble}}<a href="{{this.urls.barnesAndNoble}}" rel="noopener noreferrer" target="_blank"><img src="/images/logos/barnes-and-noble.png" alt="Barnes and Noble" /></a>{{/if}}
-    {{#if this.urls.amazon}}<a href="{{this.urls.amazon}}" rel="noopener noreferrer" target="_blank"><img src="/images/logos/amazon.png" alt="Amazon" /></a>{{/if}}
-</div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div>
+        {{#if this.urls.belleIsle}}<a href="{{this.urls.belleIsle}}" rel="noopener noreferrer" target="_blank"><img src="/images/logos/belle-isle.png" alt="Belle Isle Books" /></a>{{/if}}
+        {{#if this.urls.bookshop}}<a href="{{this.urls.bookshop}}" rel="noopener noreferrer" target="_blank"><img src="/images/logos/bookshop.png" alt="Bookshop.org" /></a>{{/if}}
+        {{#if this.urls.booksAMillion}}<a href="{{this.urls.booksAMillion}}" rel="noopener noreferrer" target="_blank"><img src="/images/logos/books-a-million.png" alt="Books-A-Million" /></a>{{/if}}
+        {{#if this.urls.barnesAndNoble}}<a href="{{this.urls.barnesAndNoble}}" rel="noopener noreferrer" target="_blank"><img
+                    src="/images/logos/barnes-and-noble.png"
+                    alt="Barnes and Noble"
+                /></a>{{/if}}
+        {{#if this.urls.amazon}}<a href="{{this.urls.amazon}}" rel="noopener noreferrer" target="_blank"><img src="/images/logos/amazon.png" alt="Amazon" /></a>{{/if}}
+    </div>
 {{/each}}

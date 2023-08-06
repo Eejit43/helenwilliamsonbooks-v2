@@ -32,8 +32,8 @@ contactForm.addEventListener('submit', async (event) => {
                 name: nameInput.value,
                 email: emailInput.value,
                 message: messageInput.value,
-                'g-recaptcha-response': captchaMessage.value
-            })
+                'g-recaptcha-response': captchaMessage.value,
+            }),
         });
 
         switch (await result.text()) {

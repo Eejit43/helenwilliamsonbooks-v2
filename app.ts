@@ -27,13 +27,15 @@ fastify.get('/', (request, reply) => reply.view('/index', { title: 'Home', addit
 
 fastify.get('/books', (request, reply) => reply.view('/pages/books', { title: 'Books', additionalScripts: [], books }));
 
-fastify.get('/contact', (request, reply) => reply.view('/pages/contact', { title: 'Info & Contact', script: 'contact-form', additionalScripts: [{ link: 'https://www.google.com/recaptcha/api.js', properties: 'async defer' }] }));
+fastify.get('/contact', (request, reply) =>
+    reply.view('/pages/contact', { title: 'Info & Contact', script: 'contact-form', additionalScripts: [{ link: 'https://www.google.com/recaptcha/api.js', properties: 'async defer' }] }),
+);
 
 const recaptchaKey = process.env.RECAPTCHA_SECRET_KEY!;
 
 const transport = nodemailer.createTransport({
     service: 'gmail',
-    auth: { user: process.env.EMAIL_USER, pass: process.env.EMAIL_PASS }
+    auth: { user: process.env.EMAIL_USER, pass: process.env.EMAIL_PASS },
 });
 
 /**
@@ -58,7 +60,7 @@ fastify.post('/contact/submit', (request, reply) => {
         '<br />',
         `<p><strong>Sent At:</strong> ${new Date().toLocaleTimeString([], { timeZone: 'America/New_York' })}, ${new Date().toLocaleDateString([], { timeZone: 'America/New_York' })} (EST)</p>`,
         '</div>',
-        '</div>'
+        '</div>',
     ].join('');
 
     const mailOptions = {
@@ -66,7 +68,7 @@ fastify.post('/contact/submit', (request, reply) => {
         to: process.env.DESTINATION_EMAIL,
         cc: process.env.CARBON_COPY_EMAIL,
         subject: 'Contact form submission - Helen Williamson Books',
-        html
+        html,
     };
 
     fetch(`https://www.google.com/recaptcha/api/siteverify?secret=${recaptchaKey}&response=${responseKey}`, { method: 'post' })
