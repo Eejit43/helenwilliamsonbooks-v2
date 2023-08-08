@@ -5,6 +5,7 @@ import chalk from 'chalk';
 import { consola } from 'consola';
 import Fastify, { FastifyError } from 'fastify';
 import handlebars from 'handlebars';
+import { marked } from 'marked';
 import path from 'node:path';
 import nodemailer from 'nodemailer';
 import books from './data.json' assert { type: 'json' };
@@ -12,6 +13,11 @@ import books from './data.json' assert { type: 'json' };
 // Add Handlebars helper functions
 handlebars.registerHelper('equals', (a, b): boolean => a === b);
 handlebars.registerHelper('both', (a, b): boolean => a && b);
+handlebars.registerHelper('markdown', (options: handlebars.HelperOptions) => {
+    const markdownContent = options.fn(this);
+    const htmlContent = marked.parseInline(markdownContent, { mangle: false, headerIds: false });
+    return htmlContent;
+});
 
 // Load layouts and static assets
 const fastify = Fastify();
@@ -53,12 +59,12 @@ fastify.post('/contact/submit', (request, reply) => {
         '<div style="font-family: \'Verdana\', sans-serif; color: #20242c">',
         '<h1>New <a href="https://www.helenwilliamsonbooks.com/contact" target="_blank">Contact Form</a> Submission:</h1>',
         '<div style="background-color: #3f92ff; padding: 10px; max-width: 80%; border-radius: 10px">',
-        `<p><strong>Name:</strong> <span style="background-color: #7588b5; border-radius: 5px; padding: 5px; display: inline-block; min-width: 20px;">${escapeHtml(name)}</span></p>`, //
-        `<p><strong>Email:</strong> <span style="background-color: #7588b5; border-radius: 5px; padding: 5px; display: inline-block; min-width: 20px;">${escapeHtml(email)}</span></p>`,
-        '<p><strong>Message:</strong></p>',
+        `<p><b>Name:</b> <span style="background-color: #7588b5; border-radius: 5px; padding: 5px; display: inline-block; min-width: 20px;">${escapeHtml(name)}</span></p>`, //
+        `<p><b>Email:</b> <span style="background-color: #7588b5; border-radius: 5px; padding: 5px; display: inline-block; min-width: 20px;">${escapeHtml(email)}</span></p>`,
+        '<p><b>Message:</b></p>',
         `<div style="background-color: #7588b5; border-radius: 5px; padding: 5px">${escapeHtml(message)}</div>`,
         '<br />',
-        `<p><strong>Sent At:</strong> ${new Date().toLocaleTimeString([], { timeZone: 'America/New_York' })}, ${new Date().toLocaleDateString([], { timeZone: 'America/New_York' })} (EST)</p>`,
+        `<p><b>Sent At:</b> ${new Date().toLocaleTimeString([], { timeZone: 'America/New_York' })}, ${new Date().toLocaleDateString([], { timeZone: 'America/New_York' })} (EST)</p>`,
         '</div>',
         '</div>',
     ].join('');

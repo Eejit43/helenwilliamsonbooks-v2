@@ -14,7 +14,7 @@ const config = {
         name: 'railway',
         args: ['run', 'node', '--enable-source-maps', '--no-warnings', '--max-old-space-size=100', 'app.js'],
     },
-    watch: ['ts', 'hbs', 'scss'].map((extension) => `**/*.${extension}`),
+    watch: ['ts', 'hbs', 'css'].map((extension) => `**/*.${extension}`),
     ignore: ['**/node_modules/**', 'development.ts'],
 };
 

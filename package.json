@@ -21,6 +21,8 @@
         "fastify": "^4.21.0",
         "glob": "^10.3.3",
         "handlebars": "^4.7.8",
+        "handlebars-utils": "^1.0.6",
+        "marked": "^6.0.0",
         "nodemailer": "^6.9.4",
         "postcss": "^8.4.27",
         "postcss-preset-env": "^9.1.1"

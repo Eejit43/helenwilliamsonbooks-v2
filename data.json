@@ -1,7 +1,7 @@
 {
     "tales-from-balladhoon-2": {
         "title": "Tales from Balladhoon",
-        "description": "The <a href=\"#tales-from-balladhoon\" class=\"link\"><em>original Tales from Balladhoon</em></a>, reimagined with new illustrations, and two more original stories!<hr />Join Johnny McGlory and his friends on a delightful journey through the Irish countryside, where fairies and leprechauns are as real as the donkey that walks under the sea and the magician who summons butterflies.<br /><br />These original Irish tales by Irish native Helen L. Williamson, are a delightful glimpse into the world of imagination and an introduction to the time honored craft of Irish storytelling. These books are sure to capture the hearts of both young and old.",
+        "description": "The <a href=\"#tales-from-balladhoon\" class=\"book-link\">original Tales from Balladhoon</a>, reimagined with new illustrations, and two more original stories!<hr />Join Johnny McGlory and his friends on a delightful journey through the Irish countryside, where fairies and leprechauns are as real as the donkey that walks under the sea and the magician who summons butterflies.\n\nThese original Irish tales by Irish native Helen L. Williamson, are a delightful glimpse into the world of imagination and an introduction to the time honored craft of Irish storytelling. These books are sure to capture the hearts of both young and old.",
         "prices": { "paperback": 14.99, "hardcover": 23.99 },
         "pages": 92,
         "width": 8,
@@ -52,7 +52,7 @@
     },
     "higgledy-piggledy-thoughts": {
         "title": "Higgledy-Piggledy Thoughts",
-        "description": "Have you thought of a goat . . .<br />. . . in a fancy coat?<br />Or a hen that could only <em>SNORE</em>?<br /><br />Children will enjoy and be inspired by many short poems and beautiful illustrations.",
+        "description": "Have you thought of a goat . . .\n. . . in a fancy coat?\nOr a hen that could only <i>SNORE</i>?\n\nChildren will enjoy and be inspired by many short poems and beautiful illustrations.",
         "prices": { "paperback": 12.95 },
         "pages": 48,
         "width": 8.5,
@@ -66,7 +66,7 @@
         "title": "A Pineapple Dream and Other Nonsense",
         "id": "a-pineapple-dream-and-other-nonsense",
         "image": "a-pineapple-dream-and-other-nonsense.png",
-        "description": "A Pineapple Dream and Other Nonsense is a beautifully illustrated full-color book of poems. They will delight your child and encourage their imagination as they read or listen to the poems and see the detailed drawings.<br /><br />It's Nonsense, it's Fun,<br />It tickles you tongue.<br />There's a mouse that knits<br />And a cat that sits.<br />There's a whale you'll adore<br />And a whole lot more.<br /><br />So, my friends, find a cozy nook<br />And plunge headlong into this book.",
+        "description": "A Pineapple Dream and Other Nonsense is a beautifully illustrated full-color book of poems. They will delight your child and encourage their imagination as they read or listen to the poems and see the detailed drawings.\n\nIt's Nonsense, it's Fun,\nIt tickles you tongue.\nThere's a mouse that knits\nAnd a cat that sits.\nThere's a whale you'll adore\nAnd a whole lot more.\n\nSo, my friends, find a cozy nook\nAnd plunge headlong into this book.",
         "prices": { "paperback": 15.95 },
         "pages": 40,
         "width": 8.5,
@@ -78,7 +78,7 @@
     },
     "tales-from-balladhoon": {
         "title": "Tales from Balladhoon",
-        "description": "Join Johnny McGlory and his friends on a delightful journey through the Irish countryside, where fairies and leprechauns are as real as the donkey that walks under the sea and the magician who summons butterflies.<br /><br />These original Irish tales by Irish native Helen L. Williamson, are a delightful glimpse into the world of imagination and an introduction to the time honored craft of Irish storytelling. These books are sure to capture the hearts of both young and old.",
+        "description": "Join Johnny McGlory and his friends on a delightful journey through the Irish countryside, where fairies and leprechauns are as real as the donkey that walks under the sea and the magician who summons butterflies.\n\nThese original Irish tales by Irish native Helen L. Williamson, are a delightful glimpse into the world of imagination and an introduction to the time honored craft of Irish storytelling. These books are sure to capture the hearts of both young and old.",
         "prices": { "paperback": 12.95 },
         "pages": 87,
         "width": 6,

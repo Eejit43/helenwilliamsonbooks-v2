@@ -8,28 +8,24 @@ declare function toastify(options: { text: string; duration: number; position: s
 /**
  * Displays a popup alert.
  * @param text The string to display.
- * @param color The color value (or `'success'` or `'error'`).
+ * @param type The color type (`'success'`, `'error'`, `'warning'`, or `'info'`).
  * @param duration The duration of the popup in milliseconds.
  */
-export function showAlert(text: string, color: string, duration?: number) {
-    color = color.toLowerCase();
-    if (color === 'success') color = '#009c3f';
-    if (color === 'error') color = '#ff5555';
+export function showAlert(text: string, type: 'success' | 'error' | 'warning' | 'info', duration?: number) {
+    const processedType = type === 'info' ? 'main' : type;
     toastify({
         text: text || 'No text specified!',
         duration: duration ?? 4000,
         position: 'center',
         style: {
-            background: '#c1e7fb',
-            border: '1px solid #b4b4b4',
+            background: `var(--${processedType}-color-100)`,
+            border: `1px solid var(--${processedType}-color-300)`,
             borderRadius: '6px',
             boxShadow: 'none',
-            color: color || '#009c3f',
-            fontFamily: '"Quattrocento Sans", sans-serif',
-            fontSize: '17px',
+            color: `var(--${processedType}-color-500)`,
+            fontFamily: 'var(--font-family-sans)',
             fontWeight: '600',
-            minWidth: '150px',
-            padding: '16px 30px',
+            minWidth: '120px',
             textAlign: 'center',
         },
     }).showToast();
