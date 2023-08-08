@@ -15,7 +15,7 @@ handlebars.registerHelper('equals', (a, b): boolean => a === b);
 handlebars.registerHelper('both', (a, b): boolean => a && b);
 handlebars.registerHelper('markdown', (options: handlebars.HelperOptions) => {
     const markdownContent = options.fn(this);
-    const htmlContent = marked.parseInline(markdownContent, { mangle: false, headerIds: false });
+    const htmlContent = marked.parseInline(markdownContent);
     return htmlContent;
 });
 
