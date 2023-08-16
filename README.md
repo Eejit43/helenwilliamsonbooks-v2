@@ -1,6 +1,6 @@
-# <img src="https://raw.githubusercontent.com/Eejit43/helenwilliamsonbooks-v2/main/public/favicons/icon.png" alt="Helen Williamson Books Logo (Mouse)" width="30"/> Helen Williamson Books
+# <img src="https://raw.githubusercontent.com/Eejit43/helenwilliamsonbooks-v2/main/src/public/favicons/icon.png" alt="Helen Williamson Books Logo (Mouse)" width="30"/> Helen Williamson Books
 
-![Helen Williamson Books Header](https://raw.githubusercontent.com/Eejit43/helenwilliamsonbooks-v2/main/public/images/header.png)
+![Helen Williamson Books Header](https://raw.githubusercontent.com/Eejit43/helenwilliamsonbooks-v2/main/src/public/images/header.png)
 
 Welcome to Helen L. Williamson's enchanting tales for children of all ages. If you love dinosaurs who wear polka dot slippers, if you have pineapple dreams, higgledy-piggledy thoughts or like to escape into fairy tales, you'll love Helen's whimsical world. There's no other world quite like it!
 

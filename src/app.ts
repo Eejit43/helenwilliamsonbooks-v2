@@ -8,7 +8,7 @@ import handlebars from 'handlebars';
 import { marked } from 'marked';
 import path from 'node:path';
 import nodemailer from 'nodemailer';
-import books from './data.json' assert { type: 'json' };
+import books from './books-data.json' assert { type: 'json' };
 
 // Add Handlebars helper functions
 handlebars.registerHelper('equals', (a, b): boolean => a === b);
@@ -22,7 +22,7 @@ handlebars.registerHelper('markdown', (options: handlebars.HelperOptions) => {
 // Load layouts and static assets
 const fastify = Fastify();
 
-fastify.register(pointOfView, { engine: { handlebars }, root: 'views', includeViewExtension: true, layout: '/layouts/layout' });
+fastify.register(pointOfView, { engine: { handlebars }, root: 'src/views/', layout: 'layouts/layout.hbs' });
 
 fastify.register(formBodyPlugin);
 

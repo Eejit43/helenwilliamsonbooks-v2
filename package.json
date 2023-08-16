@@ -2,11 +2,11 @@
     "name": "helenwilliamsonbooks",
     "type": "module",
     "scripts": {
-        "build": "cp compile.ts compile.js && node compile.js",
+        "build": "pnpm run remove-compiled && npx esbuild compile.ts --outfile=compile.js --target=node20 --platform=node && node compile.js",
         "dev": "pnpm run build && node development.js --enable-source-maps",
         "force-deploy": "railway up",
-        "remove-compiled": "find . -type f \\( -name '*.js' -o -name '*.js.map' \\) ! -path './node_modules/*' ! -path './public/scripts/external/*' -delete && find ./public/styles -type f -name '*.css' ! -name 'font-awesome.css' -delete",
-        "start": "node --no-warnings --max-old-space-size=100 app.js"
+        "remove-compiled": "rm -rf dist && find . -maxdepth 1 -type f \\( -name '*.js' -o -name '*.js.map' \\) -delete",
+        "start": "node --no-warnings --enable-source-maps --max-old-space-size=100 dist/app.js"
     },
     "prettier": "@eejit/prettier-config",
     "dependencies": {
@@ -19,7 +19,6 @@
         "esbuild": "^0.19.2",
         "esbuild-postcss": "^0.0.4",
         "fastify": "^4.21.0",
-        "glob": "^10.3.3",
         "handlebars": "^4.7.8",
         "handlebars-utils": "^1.0.6",
         "marked": "^7.0.2",

@@ -1,7 +1,8 @@
 import chalk from 'chalk';
 import { watch } from 'chokidar';
 import { consola } from 'consola';
-import { ChildProcess, exec, spawn } from 'node:child_process';
+import { ChildProcess, exec, execSync, spawn } from 'node:child_process';
+import { rmSync } from 'node:fs';
 import * as readline from 'node:readline';
 import util from 'node:util';
 import treeKill from 'tree-kill';
@@ -12,7 +13,7 @@ readline.emitKeypressEvents(process.stdin);
 const config = {
     command: {
         name: 'railway',
-        args: ['run', 'node', '--enable-source-maps', '--no-warnings', '--max-old-space-size=100', 'app.js'],
+        args: 'run node --no-warnings --enable-source-maps dist/app.js'.split(' '),
     },
     watch: ['ts', 'hbs', 'css'].map((extension) => `**/*.${extension}`),
     ignore: ['**/node_modules/**', 'development.ts'],
@@ -26,6 +27,7 @@ let running: ChildProcess;
  * Starts the process.
  */
 async function spawnProcess() {
+    rmSync('dist', { recursive: true, force: true });
     await compileTypescript();
     consola.success('Successfully compiled TypeScript and CSS!');
     running = spawn(config.command.name, config.command.args, { stdio: 'inherit', shell: true });
@@ -54,9 +56,9 @@ async function restartProcess() {
 /**
  * Stops the process.
  */
-async function stopProcess() {
+function stopProcess() {
     logMessage('Killing process...');
-    await kill(running.pid!);
+    execSync('pnpm run remove-compiled');
     process.exit(0); // eslint-disable-line unicorn/no-process-exit
 }
 
@@ -74,7 +76,6 @@ if (process.stdin.isTTY) process.stdin.setRawMode(true);
 
 logMessage('Starting!');
 logMessage('Press Ctrl+R to reload, Ctrl+C to stop, and Ctrl+O to open the website');
-process.on('exit', () => stopProcess());
 
 process.stdin.on('keypress', (string, key: { ctrl: boolean; name: string }) => {
     if (key.ctrl)
