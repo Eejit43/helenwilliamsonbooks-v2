@@ -59,7 +59,7 @@ fastify.post('/contact/submit', (request, reply) => {
         '<div style="font-family: \'Verdana\', sans-serif; color: #20242c">',
         '<h1>New <a href="https://www.helenwilliamsonbooks.com/contact" target="_blank">Contact Form</a> Submission:</h1>',
         '<div style="background-color: #3f92ff; padding: 10px; max-width: 80%; border-radius: 10px">',
-        `<p><b>Name:</b> <span style="background-color: #7588b5; border-radius: 5px; padding: 5px; display: inline-block; min-width: 20px;">${escapeHtml(name)}</span></p>`, //
+        `<p><b>Name:</b> <span style="background-color: #7588b5; border-radius: 5px; padding: 5px; display: inline-block; min-width: 20px;">${escapeHtml(name)}</span></p>`,
         `<p><b>Email:</b> <span style="background-color: #7588b5; border-radius: 5px; padding: 5px; display: inline-block; min-width: 20px;">${escapeHtml(email)}</span></p>`,
         '<p><b>Message:</b></p>',
         `<div style="background-color: #7588b5; border-radius: 5px; padding: 5px">${escapeHtml(message)}</div>`,
