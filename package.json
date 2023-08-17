@@ -21,14 +21,14 @@
         "fastify": "^4.21.0",
         "handlebars": "^4.7.8",
         "handlebars-utils": "^1.0.6",
-        "marked": "^7.0.2",
+        "marked": "^7.0.3",
         "nodemailer": "^6.9.4",
-        "postcss": "^8.4.27",
+        "postcss": "^8.4.28",
         "postcss-preset-env": "^9.1.1"
     },
     "devDependencies": {
-        "@eejit/eslint-config-typescript": "^2.8.0",
-        "@eejit/prettier-config": "^2.0.0",
+        "@eejit/eslint-config-typescript": "^2.10.0",
+        "@eejit/prettier-config": "^2.0.1",
         "@eejit/stylelint-config": "^1.1.1",
         "@tsconfig/recommended": "^1.0.2",
         "@types/nodemailer": "^6.4.9",
