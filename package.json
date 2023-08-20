@@ -21,7 +21,7 @@
         "fastify": "^4.21.0",
         "handlebars": "^4.7.8",
         "handlebars-utils": "^1.0.6",
-        "marked": "^7.0.3",
+        "marked": "^7.0.4",
         "nodemailer": "^6.9.4",
         "postcss": "^8.4.28",
         "postcss-preset-env": "^9.1.1"
@@ -32,7 +32,7 @@
         "@eejit/stylelint-config": "^1.1.1",
         "@tsconfig/recommended": "^1.0.2",
         "@types/nodemailer": "^6.4.9",
-        "stylelint": "^15.10.2",
+        "stylelint": "^15.10.3",
         "tree-kill": "^1.2.2",
         "typescript": "^5.1.6"
     },
