@@ -8,8 +8,8 @@ declare function toastify(options: { text: string; duration: number; position: s
 /**
  * Displays a popup alert.
  * @param text The string to display.
- * @param type The color type (`'success'`, `'error'`, `'warning'`, or `'info'`).
- * @param duration The duration of the popup in milliseconds.
+ * @param type The alert type.
+ * @param duration The duration for the popup to show (in milliseconds).
  */
 export function showAlert(text: string, type: 'success' | 'error' | 'warning' | 'info', duration?: number) {
     const processedType = type === 'info' ? 'main' : type;
