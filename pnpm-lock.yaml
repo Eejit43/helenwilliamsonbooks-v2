@@ -9,8 +9,8 @@ dependencies:
     specifier: ^7.4.0
     version: 7.4.0
   '@fastify/static':
-    specifier: ^6.10.2
-    version: 6.10.2
+    specifier: ^6.11.0
+    version: 6.11.0
   '@fastify/view':
     specifier: ^8.0.0
     version: 8.0.0
@@ -30,8 +30,8 @@ dependencies:
     specifier: ^0.0.4
     version: 0.0.4(esbuild@0.19.2)(postcss@8.4.29)
   fastify:
-    specifier: ^4.22.0
-    version: 4.22.0
+    specifier: ^4.22.2
+    version: 4.22.2
   handlebars:
     specifier: ^4.7.8
     version: 4.7.8
@@ -769,8 +769,8 @@ packages:
       mime: 3.0.0
     dev: false
 
-  /@fastify/static@6.10.2:
-    resolution: {integrity: sha512-UoaMvIHSBLCZBYOVZwFRYqX2ufUhd7FFMYGDeSf0Z+D8jhYtwljjmuQGuanUP8kS4y/ZEV1a8mfLha3zNwsnnQ==}
+  /@fastify/static@6.11.0:
+    resolution: {integrity: sha512-jgnqpRojDqOLHnnKlZgvvUFzR8rrxqkqzbtmuHp1amIArxGVJDXyBMPbxb3yteklBA7tPilXbx5xzDRiGXR0RA==}
     dependencies:
       '@fastify/accept-negotiator': 1.1.0
       '@fastify/send': 2.1.0
@@ -1834,8 +1834,8 @@ packages:
     resolution: {integrity: sha512-79ak0JxddO0utAXAQ5ccKhvs6vX2MGyHHMMsmZkBANrq3hXc1CHzvNPHOcvTsVMEPl5I+NT+RO4YKMGehOfSIg==}
     dev: false
 
-  /fastify@4.22.0:
-    resolution: {integrity: sha512-HLoBmetdQ6zaJohKW6jzUww8NnwHzkbIbUEyAzM+Nnf7cZVSXRuUV+6b2/xLmu6GGkruIFJ/bIQoKWYRx4wnAQ==}
+  /fastify@4.22.2:
+    resolution: {integrity: sha512-rK8mF/1mZJHH6H/L22OhmilTgrp5XMkk3RHcSy03LC+TJ6+wLhbq+4U62bjns15VzIbBNgxTqAForBqtGAa0NQ==}
     dependencies:
       '@fastify/ajv-compiler': 3.5.0
       '@fastify/error': 3.2.1
