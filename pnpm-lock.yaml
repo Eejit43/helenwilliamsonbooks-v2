@@ -65,8 +65,8 @@ devDependencies:
     specifier: ^1.0.2
     version: 1.0.2
   '@types/nodemailer':
-    specifier: ^6.4.9
-    version: 6.4.9
+    specifier: ^6.4.10
+    version: 6.4.10
   stylelint:
     specifier: ^15.10.3
     version: 15.10.3
@@ -862,8 +862,8 @@ packages:
     resolution: {integrity: sha512-EhcH/wvidPy1WeML3TtYFGR83UzjxeWRen9V402T8aUGYsCHOmfoisV3ZSg03gAFIbLq8TnWOJ0f4cALtnSEUg==}
     dev: true
 
-  /@types/nodemailer@6.4.9:
-    resolution: {integrity: sha512-XYG8Gv+sHjaOtUpiuytahMy2mM3rectgroNbs6R3djZEKmPNiIJwe9KqOJBGzKKnNZNKvnuvmugBgpq3w/S0ig==}
+  /@types/nodemailer@6.4.10:
+    resolution: {integrity: sha512-oPW/IdhkU3FyZc1dzeqmS+MBjrjZNiiINnrEOrWALzccJlP5xTlbkNr2YnTnnyj9Eqm5ofjRoASEbrCYpA7BrA==}
     dependencies:
       '@types/node': 20.3.1
     dev: true
