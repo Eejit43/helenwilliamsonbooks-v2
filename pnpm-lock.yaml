@@ -9,8 +9,8 @@ dependencies:
     specifier: ^7.4.0
     version: 7.4.0
   '@fastify/static':
-    specifier: ^6.11.1
-    version: 6.11.1
+    specifier: ^6.11.2
+    version: 6.11.2
   '@fastify/view':
     specifier: ^8.1.0
     version: 8.1.0
@@ -39,8 +39,8 @@ dependencies:
     specifier: ^1.0.6
     version: 1.0.6
   marked:
-    specifier: ^9.0.0
-    version: 9.0.0
+    specifier: ^9.0.2
+    version: 9.0.2
   nodemailer:
     specifier: ^6.9.5
     version: 6.9.5
@@ -53,8 +53,8 @@ dependencies:
 
 devDependencies:
   '@eejit/eslint-config-typescript':
-    specifier: ^2.18.0
-    version: 2.18.0(typescript@5.2.2)
+    specifier: ^2.18.1
+    version: 2.18.1(typescript@5.2.2)
   '@eejit/prettier-config':
     specifier: ^2.0.2
     version: 2.0.2(postcss@8.4.29)(typescript@5.2.2)
@@ -62,8 +62,8 @@ devDependencies:
     specifier: ^1.1.1
     version: 1.1.1(stylelint@15.10.3)
   '@tsconfig/recommended':
-    specifier: ^1.0.2
-    version: 1.0.2
+    specifier: ^1.0.3
+    version: 1.0.3
   '@types/nodemailer':
     specifier: ^6.4.10
     version: 6.4.10
@@ -445,13 +445,13 @@ packages:
     dependencies:
       postcss-selector-parser: 6.0.13
 
-  /@eejit/eslint-config-typescript@2.18.0(typescript@5.2.2):
-    resolution: {integrity: sha512-XbhlNPAdvs8QIn4VMA4HLiQcySl8z4nUnRltAhhRft7HCGDBIa5tTZ/514ASYjPWSCr5EMzvlANInyY2A05Aow==}
+  /@eejit/eslint-config-typescript@2.18.1(typescript@5.2.2):
+    resolution: {integrity: sha512-1e35a2D/FHQsMfWeSGLipiFFroTengOBH9FFU0PEYUbMptpQgHQhIuooBQCwEZ2XfdbJ9ajrsBomtUEZRo0iog==}
     dependencies:
       '@typescript-eslint/eslint-plugin': 6.7.0(@typescript-eslint/parser@6.7.0)(eslint@8.49.0)(typescript@5.2.2)
       '@typescript-eslint/parser': 6.7.0(eslint@8.49.0)(typescript@5.2.2)
       eslint: 8.49.0
-      eslint-plugin-jsdoc: 46.8.0(eslint@8.49.0)
+      eslint-plugin-jsdoc: 46.8.1(eslint@8.49.0)
       eslint-plugin-unicorn: 48.0.1(eslint@8.49.0)
     transitivePeerDependencies:
       - supports-color
@@ -769,8 +769,8 @@ packages:
       mime: 3.0.0
     dev: false
 
-  /@fastify/static@6.11.1:
-    resolution: {integrity: sha512-d8cJyPhZ0WNQTPniMNV+Q8ADuILpcMMETmkyg5Co1voT48aQXFpQP8jJmQDGo858GG3xt7v0YXeawmpGzooYaw==}
+  /@fastify/static@6.11.2:
+    resolution: {integrity: sha512-EH7mh7q4MfNdT7N07ZVlwsX/ObngMvQ7KBP0FXAuPov99Fjn80KSJMdxQhhYKAKWW1jXiFdrk8X7d6uGWdZFxg==}
     dependencies:
       '@fastify/accept-negotiator': 1.1.0
       '@fastify/send': 2.1.0
@@ -845,8 +845,8 @@ packages:
       tslib: 2.6.1
     dev: true
 
-  /@tsconfig/recommended@1.0.2:
-    resolution: {integrity: sha512-dbHBtbWBOjq0/otpopAE02NT2Cm05Qe2JsEKeCf/wjSYbI2hz8nCqnpnOJWHATgjDz4fd3dchs3Wy1gQGjfN6w==}
+  /@tsconfig/recommended@1.0.3:
+    resolution: {integrity: sha512-+jby/Guq9H8O7NWgCv6X8VAiQE8Dr/nccsCtL74xyHKhu2Knu5EAKmOZj3nLCnLm1KooUzKY+5DsnGVqhM8/wQ==}
     dev: true
 
   /@types/json-schema@7.0.12:
@@ -1588,8 +1588,8 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /eslint-plugin-jsdoc@46.8.0(eslint@8.49.0):
-    resolution: {integrity: sha512-qsYP7LN/ji5htZAdfAr8qX0bRZcbTU0hpuECR50UpaqkPyXsWgp2y77RPQ4t7fR5bHpgnGcD5L43PxjyOvIfQA==}
+  /eslint-plugin-jsdoc@46.8.1(eslint@8.49.0):
+    resolution: {integrity: sha512-uTce7IBluPKXIQMWJkIwFsI1gv7sZRmLjctca2K5DIxPi8fSBj9f4iru42XmGwuiMyH2f3nfc60sFmnSGv4Z/A==}
     engines: {node: '>=16'}
     peerDependencies:
       eslint: ^7.0.0 || ^8.0.0
@@ -2405,8 +2405,8 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /marked@9.0.0:
-    resolution: {integrity: sha512-37yoTpjU+TSXb9OBYY5n78z/CqXh76KiQj9xsKxEdztzU9fRLmbWO5YqKxgCVGKlNdexppnbKTkwB3RipVri8w==}
+  /marked@9.0.2:
+    resolution: {integrity: sha512-VRTR4AamWVw+wNl0PfT9zJpCHWIQZ4QLyiXVmpgrempuXeue883HH/97oVuY6uk7SSOJE6F73i62JrAIBAdc0Q==}
     engines: {node: '>= 16'}
     hasBin: true
     dev: false
