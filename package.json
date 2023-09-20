@@ -20,7 +20,6 @@
         "esbuild-postcss": "^0.0.4",
         "fastify": "^4.23.2",
         "handlebars": "^4.7.8",
-        "handlebars-utils": "^1.0.6",
         "marked": "^9.0.2",
         "nodemailer": "^6.9.5",
         "postcss": "^8.4.29",
