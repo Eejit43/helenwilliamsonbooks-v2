@@ -36,8 +36,8 @@ dependencies:
     specifier: ^4.7.8
     version: 4.7.8
   marked:
-    specifier: ^9.0.3
-    version: 9.0.3
+    specifier: ^9.1.0
+    version: 9.1.0
   nodemailer:
     specifier: ^6.9.5
     version: 6.9.5
@@ -2442,8 +2442,8 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /marked@9.0.3:
-    resolution: {integrity: sha512-pI/k4nzBG1PEq1J3XFEHxVvjicfjl8rgaMaqclouGSMPhk7Q3Ejb2ZRxx/ZQOcQ1909HzVoWCFYq6oLgtL4BpQ==}
+  /marked@9.1.0:
+    resolution: {integrity: sha512-VZjm0PM5DMv7WodqOUps3g6Q7dmxs9YGiFUZ7a2majzQTTCgX+6S6NAJHPvOhgFBzYz8s4QZKWWMfZKFmsfOgA==}
     engines: {node: '>= 16'}
     hasBin: true
     dev: false
