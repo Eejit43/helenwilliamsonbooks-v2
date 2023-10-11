@@ -18,7 +18,7 @@
         "consola": "^3.2.3",
         "esbuild": "^0.19.4",
         "esbuild-postcss": "^0.0.4",
-        "fastify": "^4.23.2",
+        "fastify": "^4.24.0",
         "handlebars": "^4.7.8",
         "marked": "^9.1.0",
         "nodemailer": "^6.9.6",
