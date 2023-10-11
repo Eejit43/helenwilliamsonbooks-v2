@@ -53,8 +53,8 @@ devDependencies:
     specifier: ^2.20.0
     version: 2.20.0(typescript@5.2.2)
   '@eejit/prettier-config':
-    specifier: ^2.0.4
-    version: 2.0.4(postcss@8.4.31)(typescript@5.2.2)
+    specifier: ^2.0.5
+    version: 2.0.5(postcss@8.4.31)(typescript@5.2.2)
   '@eejit/stylelint-config':
     specifier: ^1.1.1
     version: 1.1.1(stylelint@15.10.3)
@@ -504,8 +504,8 @@ packages:
       - typescript
     dev: true
 
-  /@eejit/prettier-config@2.0.4(postcss@8.4.31)(typescript@5.2.2):
-    resolution: {integrity: sha512-O6K16ckksu0/HLueiRLRapotwVqbTr89AWCT8aMwXb9u2we4bkwawmOu7C/T08m++RSolEsTwzejwOitYfAcmA==}
+  /@eejit/prettier-config@2.0.5(postcss@8.4.31)(typescript@5.2.2):
+    resolution: {integrity: sha512-mChaYD7FFTQjSTBMMhOcsHzUnnBbVL5FUipyq6i8C0WZJXCLalkN+53F2sGd42wL0HBtTTTcIgvlM5jrJLTysw==}
     dependencies:
       prettier: 3.0.3
       prettier-plugin-css-order: 2.0.1(postcss@8.4.31)(prettier@3.0.3)
