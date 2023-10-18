@@ -26,11 +26,11 @@
         "postcss-preset-env": "^9.2.0"
     },
     "devDependencies": {
-        "@eejit/eslint-config-typescript": "^2.20.0",
+        "@eejit/eslint-config-typescript": "^2.21.0",
         "@eejit/prettier-config": "^2.0.5",
         "@eejit/stylelint-config": "^1.1.1",
         "@tsconfig/recommended": "^1.0.3",
-        "@types/nodemailer": "^6.4.11",
+        "@types/nodemailer": "^6.4.12",
         "stylelint": "^15.11.0",
         "tree-kill": "^1.2.2",
         "typescript": "^5.2.2"
