@@ -26,7 +26,7 @@
         "postcss-preset-env": "^9.2.0"
     },
     "devDependencies": {
-        "@eejit/eslint-config-typescript": "^2.22.0",
+        "@eejit/eslint-config-typescript": "^2.23.0",
         "@eejit/prettier-config": "^2.0.5",
         "@eejit/stylelint-config": "^1.1.1",
         "@tsconfig/recommended": "^1.0.3",
