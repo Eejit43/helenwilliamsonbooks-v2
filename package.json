@@ -11,7 +11,7 @@
     "prettier": "@eejit/prettier-config",
     "dependencies": {
         "@fastify/formbody": "^7.4.0",
-        "@fastify/static": "^6.11.2",
+        "@fastify/static": "^6.12.0",
         "@fastify/view": "^8.2.0",
         "chalk": "^5.3.0",
         "chokidar": "^3.5.3",
@@ -26,7 +26,7 @@
         "postcss-preset-env": "^9.2.0"
     },
     "devDependencies": {
-        "@eejit/eslint-config-typescript": "^2.23.0",
+        "@eejit/eslint-config-typescript": "^3.0.0",
         "@eejit/prettier-config": "^2.0.5",
         "@eejit/stylelint-config": "^1.1.1",
         "@tsconfig/recommended": "^1.0.3",
