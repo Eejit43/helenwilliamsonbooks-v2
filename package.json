@@ -20,7 +20,7 @@
         "esbuild-postcss": "^0.0.4",
         "fastify": "^4.24.3",
         "handlebars": "^4.7.8",
-        "marked": "^9.1.4",
+        "marked": "^9.1.5",
         "nodemailer": "^6.9.7",
         "postcss": "^8.4.31",
         "postcss-preset-env": "^9.3.0"
@@ -35,5 +35,5 @@
         "tree-kill": "^1.2.2",
         "typescript": "^5.2.2"
     },
-    "packageManager": "pnpm@8.10.1"
+    "packageManager": "pnpm@8.10.2"
 }
