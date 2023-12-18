@@ -18,15 +18,15 @@
         "consola": "^3.2.3",
         "esbuild": "^0.19.9",
         "esbuild-postcss": "^0.0.4",
-        "fastify": "^4.24.3",
+        "fastify": "^4.25.1",
         "handlebars": "^4.7.8",
-        "marked": "^11.0.1",
+        "marked": "^11.1.0",
         "nodemailer": "^6.9.7",
         "postcss": "^8.4.32",
         "postcss-preset-env": "^9.3.0"
     },
     "devDependencies": {
-        "@eejit/eslint-config-typescript": "^3.6.0",
+        "@eejit/eslint-config-typescript": "^3.7.0",
         "@eejit/prettier-config": "^2.1.2",
         "@eejit/stylelint-config": "^1.1.2",
         "@tsconfig/recommended": "^1.0.3",
@@ -35,5 +35,5 @@
         "tree-kill": "^1.2.2",
         "typescript": "^5.3.3"
     },
-    "packageManager": "pnpm@8.12.0"
+    "packageManager": "pnpm@8.12.1"
 }
