@@ -22,11 +22,11 @@
         "handlebars": "^4.7.8",
         "marked": "^11.1.1",
         "nodemailer": "^6.9.8",
-        "postcss": "^8.4.32",
+        "postcss": "^8.4.33",
         "postcss-preset-env": "^9.3.0"
     },
     "devDependencies": {
-        "@eejit/eslint-config-typescript": "^5.0.0",
+        "@eejit/eslint-config-typescript": "^6.0.0",
         "@eejit/prettier-config": "^2.1.2",
         "@eejit/stylelint-config": "^2.0.0",
         "@tsconfig/recommended": "^1.0.3",
@@ -35,5 +35,5 @@
         "tree-kill": "^1.2.2",
         "typescript": "^5.3.3"
     },
-    "packageManager": "pnpm@8.13.1"
+    "packageManager": "pnpm@8.14.0"
 }
