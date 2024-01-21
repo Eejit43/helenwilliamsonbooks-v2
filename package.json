@@ -27,11 +27,11 @@
     },
     "devDependencies": {
         "@eejit/eslint-config-typescript": "^6.0.1",
-        "@eejit/prettier-config": "^2.2.0",
+        "@eejit/prettier-config": "^2.2.2",
         "@eejit/stylelint-config": "^2.0.0",
         "@tsconfig/recommended": "^1.0.3",
         "@types/nodemailer": "^6.4.14",
-        "stylelint": "^16.1.0",
+        "stylelint": "^16.2.0",
         "tree-kill": "^1.2.2",
         "typescript": "^5.3.3"
     },
