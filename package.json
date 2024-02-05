@@ -11,29 +11,29 @@
     "prettier": "@eejit/prettier-config",
     "dependencies": {
         "@fastify/formbody": "^7.4.0",
-        "@fastify/static": "^6.12.0",
+        "@fastify/static": "^7.0.0",
         "@fastify/view": "^8.2.0",
         "chalk": "^5.3.0",
         "chokidar": "^3.5.3",
         "consola": "^3.2.3",
         "esbuild": "^0.20.0",
         "esbuild-postcss": "^0.0.4",
-        "fastify": "^4.25.2",
+        "fastify": "^4.26.0",
         "handlebars": "^4.7.8",
-        "marked": "^11.2.0",
+        "marked": "^12.0.0",
         "nodemailer": "^6.9.8",
         "postcss": "^8.4.33",
         "postcss-preset-env": "^9.3.0"
     },
     "devDependencies": {
-        "@eejit/eslint-config-typescript": "^6.1.1",
-        "@eejit/prettier-config": "^2.2.2",
+        "@eejit/eslint-config-typescript": "^6.2.0",
+        "@eejit/prettier-config": "^2.2.3",
         "@eejit/stylelint-config": "^2.0.0",
         "@tsconfig/recommended": "^1.0.3",
         "@types/nodemailer": "^6.4.14",
-        "stylelint": "^16.2.0",
+        "stylelint": "^16.2.1",
         "tree-kill": "^1.2.2",
         "typescript": "^5.3.3"
     },
-    "packageManager": "pnpm@8.15.0"
+    "packageManager": "pnpm@8.15.1"
 }
