@@ -11,7 +11,7 @@
     "prettier": "@eejit/prettier-config",
     "dependencies": {
         "@fastify/formbody": "^7.4.0",
-        "@fastify/static": "^7.0.2",
+        "@fastify/static": "^7.0.3",
         "@fastify/view": "^9.0.0",
         "chalk": "^5.3.0",
         "chokidar": "^3.6.0",
@@ -23,17 +23,17 @@
         "marked": "^12.0.1",
         "nodemailer": "^6.9.13",
         "postcss": "^8.4.38",
-        "postcss-preset-env": "^9.5.3"
+        "postcss-preset-env": "^9.5.4"
     },
     "devDependencies": {
-        "@eejit/eslint-config-typescript": "^8.4.0",
+        "@eejit/eslint-config-typescript": "^9.0.0",
         "@eejit/prettier-config": "^2.2.3",
         "@eejit/stylelint-config": "^3.0.1",
-        "@tsconfig/recommended": "^1.0.5",
+        "@tsconfig/recommended": "^1.0.6",
         "@types/nodemailer": "^6.4.14",
         "stylelint": "^16.3.1",
         "tree-kill": "^1.2.2",
-        "typescript": "^5.4.3"
+        "typescript": "^5.4.4"
     },
-    "packageManager": "pnpm@8.15.5"
+    "packageManager": "pnpm@8.15.6"
 }
