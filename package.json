@@ -20,13 +20,13 @@
         "esbuild-postcss": "^0.0.4",
         "fastify": "^4.26.2",
         "handlebars": "^4.7.8",
-        "marked": "^12.0.1",
+        "marked": "^12.0.2",
         "nodemailer": "^6.9.13",
         "postcss": "^8.4.38",
-        "postcss-preset-env": "^9.5.5"
+        "postcss-preset-env": "^9.5.8"
     },
     "devDependencies": {
-        "@eejit/eslint-config-typescript": "^9.0.0",
+        "@eejit/eslint-config-typescript": "^9.5.0",
         "@eejit/prettier-config": "^2.2.3",
         "@eejit/stylelint-config": "^3.0.1",
         "@tsconfig/recommended": "^1.0.6",
@@ -35,5 +35,5 @@
         "tree-kill": "^1.2.2",
         "typescript": "^5.4.5"
     },
-    "packageManager": "pnpm@8.15.7"
+    "packageManager": "pnpm@9.0.5"
 }
