@@ -8,8 +8,8 @@ const banner = {
 };
 
 const buildParameters: Record<string, BuildOptions> = {
-    node: { platform: 'node', format: 'esm', target: 'node20', sourcemap: true, banner },
-    browser: { platform: 'browser', format: 'esm', target: 'es2017', sourcemap: true, banner },
+    node: { platform: 'node', format: 'esm', sourcemap: true, banner },
+    browser: { platform: 'browser', format: 'esm', sourcemap: true, banner },
     css: { plugins: [postcss()], sourcemap: true, banner },
 };
 
