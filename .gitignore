@@ -6,3 +6,5 @@ node_modules/
 /*.js.map
 
 dist
+
+!eslint.config.js

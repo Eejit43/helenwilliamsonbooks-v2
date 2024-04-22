@@ -4,7 +4,7 @@ import { consola } from 'consola';
 import { ChildProcess, exec, execSync, spawn } from 'node:child_process';
 import { rmSync } from 'node:fs';
 import * as readline from 'node:readline';
-import util from 'node:util';
+import { promisify } from 'node:util';
 import treeKill from 'tree-kill';
 import { compileTypescript } from './compile.js';
 
@@ -19,7 +19,7 @@ const config = {
     ignore: ['**/node_modules/**', 'development.ts'],
 };
 
-const kill = util.promisify(treeKill);
+const kill = promisify(treeKill);
 
 let running: ChildProcess;
 
