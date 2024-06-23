@@ -21,19 +21,19 @@
         "fastify": "^4.28.0",
         "handlebars": "^4.7.8",
         "marked": "^13.0.0",
-        "nodemailer": "^6.9.13",
+        "nodemailer": "^6.9.14",
         "postcss": "^8.4.38",
         "postcss-preset-env": "^9.5.14"
     },
     "devDependencies": {
-        "@eejit/eslint-config-typescript": "^10.2.0",
+        "@eejit/eslint-config-typescript": "^11.0.0",
         "@eejit/prettier-config": "^2.3.0",
         "@eejit/stylelint-config": "^3.0.1",
         "@tsconfig/recommended": "^1.0.6",
         "@types/nodemailer": "^6.4.15",
         "stylelint": "^16.6.1",
         "tree-kill": "^1.2.2",
-        "typescript": "^5.4.5"
+        "typescript": "^5.5.2"
     },
-    "packageManager": "pnpm@9.3.0"
+    "packageManager": "pnpm@9.4.0"
 }
