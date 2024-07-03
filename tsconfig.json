@@ -1,9 +1,4 @@
 {
-    "extends": "@tsconfig/recommended/tsconfig.json",
-    "compilerOptions": {
-        "target": "ESNext",
-        "module": "NodeNext",
-        "resolveJsonModule": true
-    },
+    "extends": "@eejit/eslint-config-typescript/tsconfig.json",
     "include": ["development.ts", "src/app.ts"]
 }
