@@ -30,6 +30,7 @@
         "@eejit/prettier-config": "^2.3.0",
         "@eejit/stylelint-config": "^3.0.1",
         "@tsconfig/recommended": "^1.0.7",
+        "@types/node": "^20.14.9",
         "@types/nodemailer": "^6.4.15",
         "stylelint": "^16.6.1",
         "tree-kill": "^1.2.2",

@@ -78,8 +78,8 @@ fastify.post('/contact/submit', (request, reply) => {
     };
 
     fetch(`https://www.google.com/recaptcha/api/siteverify?secret=${recaptchaKey}&response=${responseKey}`, { method: 'post' })
-        .then((response) => response.json())
-        .then((googleResponse: { success: boolean }) => {
+        .then((response) => response.json() as Promise<{ success: boolean }>)
+        .then((googleResponse) => {
             if (googleResponse.success)
                 transport.sendMail(mailOptions, (error) => {
                     if (error) {
