@@ -23,18 +23,18 @@
         "marked": "^14.0.0",
         "nodemailer": "^6.9.14",
         "postcss": "^8.4.41",
-        "postcss-preset-env": "^10.0.1"
+        "postcss-preset-env": "^10.0.2"
     },
     "devDependencies": {
         "@eejit/eslint-config-typescript": "^13.1.0",
         "@eejit/prettier-config": "^3.0.0",
         "@eejit/stylelint-config": "^3.0.2",
         "@tsconfig/recommended": "^1.0.7",
-        "@types/node": "^20.16.0",
+        "@types/node": "^20.16.1",
         "@types/nodemailer": "^6.4.15",
         "stylelint": "^16.8.2",
         "tree-kill": "^1.2.2",
         "typescript": "^5.5.4"
     },
-    "packageManager": "pnpm@9.7.1"
+    "packageManager": "pnpm@9.8.0"
 }
