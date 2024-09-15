@@ -35,6 +35,5 @@
         "stylelint": "^16.9.0",
         "tree-kill": "^1.2.2",
         "typescript": "^5.5.4"
-    },
-    "packageManager": "pnpm@9.9.0"
+    }
 }
