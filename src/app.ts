@@ -8,7 +8,7 @@ import handlebars from 'handlebars';
 import { marked } from 'marked';
 import path from 'node:path';
 import nodemailer from 'nodemailer';
-import books from './books-data.json' assert { type: 'json' };
+import books from './books-data.json' with { type: 'json' };
 
 // Add Handlebars helper functions
 handlebars.registerHelper('equals', (a, b): boolean => a === b);
