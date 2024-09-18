@@ -15,8 +15,8 @@ const config = {
         name: 'railway',
         args: 'run node --no-warnings --enable-source-maps dist/app.js'.split(' '),
     },
-    watch: ['ts', 'hbs', 'css'].map((extension) => `**/*.${extension}`),
-    ignore: ['**/node_modules/**', 'development.ts'],
+    watch: ['ts', 'hbs', 'css'],
+    ignored: ['node_modules', 'dist', '.git', 'development.ts'],
 };
 
 const kill = promisify(treeKill);
@@ -95,7 +95,17 @@ process.stdin.on('keypress', (string, key: { ctrl: boolean; name: string }) => {
 
 let restarting = false;
 
-watch(config.watch, { ignored: config.ignore }).on('change', async () => {
+const watcher = watch('.', {
+    ignored: (path, stats) => {
+        if (config.ignored.includes(path)) return true;
+        if (!stats?.isFile()) return false;
+
+        if (config.watch.some((extension) => path.endsWith(extension))) return false;
+        return true;
+    },
+});
+
+watcher.on('change', async () => {
     if (restarting) return;
     restarting = true;
     await restartProcess();
