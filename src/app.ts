@@ -105,9 +105,9 @@ fastify.setNotFoundHandler((request, reply) => {
     reply.status(404).view('/error', { title: 'Not Found', additionalScripts: [] });
 });
 
+// Start server
 const port = process.env.PORT ? Number.parseInt(process.env.PORT) : 3000;
 
-// Start server
 fastify.listen({ port, host: '0.0.0.0' }, (error) => {
     if (error) {
         if ((error as FastifyError).code === 'EADDRINUSE') consola.error(`${chalk.red('[Startup error]:')} Port ${chalk.yellow(port)} is already in use!`);
