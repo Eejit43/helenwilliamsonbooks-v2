@@ -8,11 +8,13 @@
 
             <div class="book-data">
                 <b>Type:</b>
-                {{#if this.prices.paperback}}Paperback{{/if}}{{#if (both this.prices.paperback this.prices.hardcover)}} / {{/if}}{{#if this.prices.hardcover}}Hardcover{{/if}}<br />
-                <b>Price:</b>
-                {{#if this.prices.paperback}}${{this.prices.paperback}}{{/if}}{{#if (both this.prices.paperback this.prices.hardcover)}} / {{/if}}{{#if
+                {{#if this.prices.paperback}}Paperback{{/if}}{{#if (both this.prices.paperback this.prices.hardcover)}} / {{/if}}{{#if
                     this.prices.hardcover
-                }}${{this.prices.hardcover}}{{/if}}<br />
+                }}Hardcover{{/if}}<br />
+                <b>Price:</b>
+                {{#if this.prices.paperback}}${{this.prices.paperback}}{{/if}}{{#if (both this.prices.paperback this.prices.hardcover)}}
+                    /
+                {{/if}}{{#if this.prices.hardcover}}${{this.prices.hardcover}}{{/if}}<br />
                 <b>Pages:</b>
                 {{this.pages}}<br />
                 <b>Dimensions:</b>
@@ -33,8 +35,14 @@
             </div>
 
             <div class="purchase-links">
-                {{#if this.urls.belleIsle}}<a href="{{this.urls.belleIsle}}" rel="noopener noreferrer" target="_blank"><img src="/images/logos/belle-isle.png" alt="Belle Isle Books" /></a>{{/if}}
-                {{#if this.urls.bookshop}}<a href="{{this.urls.bookshop}}" rel="noopener noreferrer" target="_blank"><img src="/images/logos/bookshop.png" alt="Bookshop.org" /></a>{{/if}}
+                {{#if this.urls.belleIsle}}<a href="{{this.urls.belleIsle}}" rel="noopener noreferrer" target="_blank"><img
+                            src="/images/logos/belle-isle.png"
+                            alt="Belle Isle Books"
+                        /></a>{{/if}}
+                {{#if this.urls.bookshop}}<a href="{{this.urls.bookshop}}" rel="noopener noreferrer" target="_blank"><img
+                            src="/images/logos/bookshop.png"
+                            alt="Bookshop.org"
+                        /></a>{{/if}}
                 {{#if this.urls.booksAMillion}}<a href="{{this.urls.booksAMillion}}" rel="noopener noreferrer" target="_blank"><img
                             src="/images/logos/books-a-million.png"
                             alt="Books-A-Million"
@@ -43,7 +51,10 @@
                             src="/images/logos/barnes-and-noble.png"
                             alt="Barnes and Noble"
                         /></a>{{/if}}
-                {{#if this.urls.amazon}}<a href="{{this.urls.amazon}}" rel="noopener noreferrer" target="_blank"><img src="/images/logos/amazon.png" alt="Amazon" /></a>{{/if}}
+                {{#if this.urls.amazon}}<a href="{{this.urls.amazon}}" rel="noopener noreferrer" target="_blank"><img
+                            src="/images/logos/amazon.png"
+                            alt="Amazon"
+                        /></a>{{/if}}
             </div>
         </div>
     </div>

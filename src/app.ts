@@ -34,7 +34,11 @@ fastify.get('/', (request, reply) => reply.view('/index', { title: 'Home', addit
 fastify.get('/books', (request, reply) => reply.view('/pages/books', { title: 'Books', additionalScripts: [], books }));
 
 fastify.get('/contact', (request, reply) =>
-    reply.view('/pages/contact', { title: 'Info & Contact', script: 'contact-form', additionalScripts: [{ link: 'https://www.google.com/recaptcha/api.js', properties: 'async defer' }] }),
+    reply.view('/pages/contact', {
+        title: 'Info & Contact',
+        script: 'contact-form',
+        additionalScripts: [{ link: 'https://www.google.com/recaptcha/api.js', properties: 'async defer' }],
+    }),
 );
 
 const recaptchaKey = process.env.RECAPTCHA_SECRET_KEY!;
@@ -49,11 +53,21 @@ const transport = nodemailer.createTransport({
  * @param input String to be modified.
  */
 function escapeHtml(input: string): string {
-    return input.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&#039;');
+    return input
+        .replaceAll('&', '&amp;')
+        .replaceAll('<', '&lt;')
+        .replaceAll('>', '&gt;')
+        .replaceAll('"', '&quot;')
+        .replaceAll("'", '&#039;');
 }
 
 fastify.post('/contact/submit', (request, reply) => {
-    const { name, email, message, 'g-recaptcha-response': responseKey } = request.body as { name: string; email: string; message: string; 'g-recaptcha-response': string };
+    const {
+        name,
+        email,
+        message,
+        'g-recaptcha-response': responseKey,
+    } = request.body as { name: string; email: string; message: string; 'g-recaptcha-response': string };
 
     const html = [
         '<div style="font-family: \'Verdana\', sans-serif; color: #20242c">',
@@ -110,12 +124,16 @@ const port = process.env.PORT ? Number.parseInt(process.env.PORT) : 3000;
 
 fastify.listen({ port, host: '0.0.0.0' }, (error) => {
     if (error) {
-        if ((error as FastifyError).code === 'EADDRINUSE') consola.error(`${chalk.red('[Startup error]:')} Port ${chalk.yellow(port)} is already in use!`);
+        if ((error as FastifyError).code === 'EADDRINUSE')
+            consola.error(`${chalk.red('[Startup error]:')} Port ${chalk.yellow(port)} is already in use!`);
         else consola.error(error);
+
         process.exit(1); // eslint-disable-line unicorn/no-process-exit
     }
 
-    consola.success(`${chalk.green('Server is now listening on port')} ${chalk.yellow(port)}${process.env.NODE_ENV === 'production' ? '' : ` (${chalk.blueBright(`http://localhost:${port}`)})`}`);
+    consola.success(
+        `${chalk.green('Server is now listening on port')} ${chalk.yellow(port)}${process.env.NODE_ENV === 'production' ? '' : ` (${chalk.blueBright(`http://localhost:${port}`)})`}`,
+    );
 });
 
 // Custom error/warning handlers
