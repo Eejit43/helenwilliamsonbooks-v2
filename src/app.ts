@@ -67,7 +67,7 @@ fastify.post('/contact/submit', (request, reply) => {
         email,
         message,
         'g-recaptcha-response': responseKey,
-    } = request.body as { name: string; email: string; message: string; 'g-recaptcha-response': string };
+    } = request.body as { 'name': string; 'email': string; 'message': string; 'g-recaptcha-response': string };
 
     const html = [
         '<div style="font-family: \'Verdana\', sans-serif; color: #20242c">',

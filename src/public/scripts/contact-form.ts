@@ -29,9 +29,9 @@ contactForm.addEventListener('submit', async (event) => {
         const result = await fetch('/contact/submit', {
             method: 'POST',
             body: new URLSearchParams({
-                name: nameInput.value,
-                email: emailInput.value,
-                message: messageInput.value,
+                'name': nameInput.value,
+                'email': emailInput.value,
+                'message': messageInput.value,
                 'g-recaptcha-response': captchaMessage.value,
             }),
         });
